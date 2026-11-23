@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { brands, group } from "./brands";
 
 export default function HomePage() {
@@ -21,7 +22,7 @@ export default function HomePage() {
         </h2>
         <ul className="brand-list">
           {brands.map((brand) => (
-            <li key={brand.id} className="brand-card">
+            <li key={brand.id} className="brand-card" data-brand={brand.id}>
               <p className="brand-category">{brand.category}</p>
               <h3 className="brand-name">{brand.name}</h3>
               <p className="brand-tagline">{brand.tagline}</p>
@@ -31,7 +32,10 @@ export default function HomePage() {
       </section>
 
       <footer className="footer">
-        <p>Demo project. No bookings are made and no real business is represented.</p>
+        <p>
+          Demo project. No bookings are made and no real business is represented.{" "}
+          <Link href="/tokens">View the design tokens</Link>.
+        </p>
       </footer>
     </main>
   );
