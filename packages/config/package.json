@@ -1,0 +1,36 @@
+{
+  "name": "@salon-demos/config",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared ESLint, Prettier and TypeScript presets for the salon-demos monorepo.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./eslint/base": "./eslint/base.js",
+    "./eslint/next": "./eslint/next.js",
+    "./prettier": "./prettier.js",
+    "./tsconfig/base.json": "./tsconfig/base.json",
+    "./tsconfig/nextjs.json": "./tsconfig/nextjs.json",
+    "./tsconfig/library.json": "./tsconfig/library.json"
+  },
+  "dependencies": {
+    "@eslint/js": "9.39.5",
+    "eslint-config-next": "16.4.6",
+    "eslint-config-prettier": "10.1.8",
+    "globals": "16.4.0",
+    "typescript-eslint": "8.74.0"
+  },
+  "peerDependencies": {
+    "eslint": "^9.39.0",
+    "prettier": "^3.10.0",
+    "typescript": "^6.0.0"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "9.39.5",
+    "prettier": "3.10.1",
+    "typescript": "6.0.3"
+  }
+}
