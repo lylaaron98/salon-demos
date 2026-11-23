@@ -59,9 +59,16 @@ Routes in `apps/web`:
 | --------------- | ---------------------------------------------------------------------------- |
 | `/`             | Orrin Collective group hub linking the three studios                         |
 | `/[brand]`      | Brand home (`sable`, `dewlab`, `rootwell`), statically generated; others 404 |
-| `/[brand]/book` | Booking placeholder (the step-by-step flow lands in a later PR)              |
+| `/[brand]/book` | Five-step booking flow (outlet, service, date and time, details, confirm)    |
 | `/components`   | Every `@salon-demos/ui` component under a brand switcher                     |
 | `/tokens`       | Token swatches, type scale and contrast checks per theme                     |
+
+The booking flow keeps each step in the URL (`?step=time&outlet=novena&...`), so back, forward and
+refresh work. Slots come from a deterministic mock (`apps/web/lib/booking/availability.ts`, Singapore
+time, closed days honoured). Details are validated by one zod schema on the client and in a server
+action, which returns a fake reference such as `ORN-7K3Q`: nothing is stored, nothing is charged,
+and the final submit works without JavaScript. Analytics events go to `window.dataLayer` with the
+names from the design brief and no personal data.
 
 Brand content lives in typed data files under `apps/web/content/brands/`. The `[brand]` layout sets
 `data-brand` on its wrapper, so every token variable inside resolves to that brand's theme.
@@ -76,10 +83,18 @@ All commands run from the repo root and fan out through Turborepo.
 | `pnpm build`     | Production build of every package (Next.js included)       |
 | `pnpm lint`      | ESLint in every package, then a Prettier check of the repo |
 | `pnpm typecheck` | `tsc --noEmit` in every package                            |
-| `pnpm test`      | Unit tests (token contrast checks, UI helper functions)    |
+| `pnpm test`      | Unit tests (token contrast, UI helpers, booking logic)     |
 | `pnpm format`    | Format the whole repo with Prettier                        |
 
 Run a single package with a filter, for example `pnpm --filter web dev`.
+
+End-to-end tests (Playwright, desktop 1440×900 and mobile 390×844) run against a production build
+and are not part of CI yet:
+
+```bash
+pnpm --filter web exec playwright install chromium   # once
+pnpm build && pnpm --filter web test:e2e
+```
 
 ## Continuous integration
 
