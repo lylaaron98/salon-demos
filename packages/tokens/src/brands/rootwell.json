@@ -1,0 +1,132 @@
+{
+  "$description": "Brand tier for Rootwell ([data-brand=\"rootwell\"]). Re-points semantic tokens only.",
+  "color": {
+    "$type": "color",
+    "bg": {
+      "page": {
+        "$value": "{p.mist-50}"
+      },
+      "surface": {
+        "$value": "{p.neutral-0}"
+      },
+      "subtle": {
+        "$value": "{p.mist-200}"
+      },
+      "inverse": {
+        "$value": "{p.forest-900}"
+      },
+      "accent": {
+        "$value": "{p.ochre-400}"
+      }
+    },
+    "text": {
+      "primary": {
+        "$value": "{p.forest-900}"
+      },
+      "muted": {
+        "$value": "{p.slate-600}"
+      },
+      "inverse": {
+        "$value": "{p.neutral-0}"
+      },
+      "accent": {
+        "$value": "{p.eucalyptus-700}"
+      },
+      "on-accent": {
+        "$value": "{p.forest-900}"
+      }
+    },
+    "action": {
+      "bg": {
+        "$value": "{p.eucalyptus-700}"
+      },
+      "bg-hover": {
+        "$value": "{p.eucalyptus-800}"
+      },
+      "bg-pressed": {
+        "$value": "{p.eucalyptus-800}"
+      },
+      "text": {
+        "$value": "{p.neutral-0}"
+      },
+      "secondary-border": {
+        "$value": "{p.eucalyptus-700}"
+      },
+      "secondary-text": {
+        "$value": "{p.eucalyptus-700}"
+      }
+    },
+    "border": {
+      "input": {
+        "$value": "{p.slate-400}"
+      },
+      "subtle": {
+        "$value": "{p.mist-200}"
+      }
+    },
+    "focus-ring": {
+      "$value": "{p.eucalyptus-700}"
+    },
+    "decor-accent": {
+      "$value": "{p.ochre-500}"
+    }
+  },
+  "font-family": {
+    "$type": "fontFamily",
+    "display": {
+      "$value": "Outfit, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    },
+    "body": {
+      "$value": "Source Sans 3, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    },
+    "$description": "Comma-separated font stack, first entry is the brand web font. Stored as a string (not an array) so brand files replace the whole stack instead of merging by index."
+  },
+  "brand": {
+    "ink-rgb": {
+      "$value": "31 42 39",
+      "$description": "Brand ink as space-separated RGB, used to tint shadows"
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "button": {
+      "$value": "{radius.md}"
+    },
+    "card": {
+      "$value": "{radius.md}"
+    },
+    "input": {
+      "$value": "{radius.md}"
+    },
+    "chip": {
+      "$value": "{radius.md}"
+    }
+  },
+  "button": {
+    "text-transform": {
+      "$value": "none"
+    },
+    "letter-spacing": {
+      "$type": "dimension",
+      "$value": "{letter-spacing.normal}"
+    },
+    "font-weight": {
+      "$type": "fontWeight",
+      "$value": "{font-weight.semibold}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font-size.md}"
+    }
+  },
+  "display": {
+    "weight": {
+      "$type": "fontWeight",
+      "$value": "{font-weight.semibold}"
+    },
+    "letter-spacing": {
+      "$type": "dimension",
+      "$value": "{letter-spacing.tight}"
+    }
+  }
+}
