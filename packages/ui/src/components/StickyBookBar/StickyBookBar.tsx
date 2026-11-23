@@ -15,6 +15,11 @@ export type StickyBookBarProps = {
   watchId?: string;
   /** id of the footer (or booking form). The bar hides while it is in view. */
   hideNearId?: string;
+  /**
+   * Render a 64px spacer so content is never hidden behind the bar. Turn off when the
+   * page reserves the space itself (for example as footer padding).
+   */
+  spacer?: boolean;
 };
 
 /**
@@ -29,6 +34,7 @@ export function StickyBookBar({
   whatsappText,
   watchId = "hero-cta",
   hideNearId = "site-footer",
+  spacer = true,
 }: StickyBookBarProps) {
   const [ctaVisible, setCtaVisible] = useState(true);
   const [endVisible, setEndVisible] = useState(false);
@@ -56,7 +62,7 @@ export function StickyBookBar({
 
   return (
     <>
-      <div className={styles.spacer} aria-hidden="true" />
+      {spacer ? <div className={styles.spacer} aria-hidden="true" /> : null}
       <nav aria-label="Quick booking" className={styles.bar} data-visible={visible || undefined}>
         <a
           className={styles.iconAction}
