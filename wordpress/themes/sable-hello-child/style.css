@@ -1,0 +1,22 @@
+/*
+Theme Name:        Sable & Shear
+Theme URI:         https://github.com/lylaaron98/salon-demos
+Description:       Hello Elementor child theme for Sable & Shear, a fictional hair atelier in the Orrin Collective demo. Works with free Elementor: token-driven global styles, self-hosted fonts, accessible PHP header/footer (replacing Elementor Pro Theme Builder) and a sticky mobile booking bar.
+Author:            Aaron Lee
+Author URI:        https://github.com/lylaaron98
+Template:          hello-elementor
+Version:           1.0.0
+Requires at least: 6.5
+Tested up to:      6.8
+Requires PHP:      8.1
+License:           GPL-2.0-or-later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       sable-hello-child
+Domain Path:       /languages
+Tags:              custom-menu, accessibility-ready, translation-ready
+*/
+
+/*
+ * Styles live in assets/css/theme.css; design tokens in assets/build/tokens.css (generated).
+ * This file only carries the theme header WordPress reads.
+ */

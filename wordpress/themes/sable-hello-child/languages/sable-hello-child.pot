@@ -1,0 +1,314 @@
+# Copyright (C) 2026 Aaron Lee
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Salon Booking Enquiry 1.0.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: sable-hello-child\n"
+
+#: inc/template-tags.php:165
+msgid "(home)"
+msgstr ""
+
+#: footer.php:88
+msgid "10 am to 7 pm"
+msgstr ""
+
+#: footer.php:86
+msgid "10 am to 9 pm"
+msgstr ""
+
+#: inc/elementor-kit.php:136
+msgid "Active kit ID"
+msgstr ""
+
+#. translators: %s: download link for the kit zip.
+#: inc/elementor-kit.php:154
+#, php-format
+msgid "Alternative: import %s with Elementor > Tools > Import/Export Kit."
+msgstr ""
+
+#: footer.php:102
+msgid "An Orrin Collective studio"
+msgstr ""
+
+#: inc/elementor-kit.php:148
+msgid "Apply token kit to Elementor"
+msgstr ""
+
+#: inc/template-tags.php:227
+msgid "Balayage"
+msgstr ""
+
+#: inc/customizer.php:42 inc/template-tags.php:56
+msgid "Book a stylist"
+msgstr ""
+
+#: footer.php:140
+msgid "Book now"
+msgstr ""
+
+#: inc/customizer.php:41
+msgid "Booking page URL"
+msgstr ""
+
+#: inc/template-tags.php:228
+msgid "Bridal hair"
+msgstr ""
+
+#: footer.php:137
+msgid "Call"
+msgstr ""
+
+#. translators: %s: phone number.
+#: header.php:111
+#, php-format
+msgid "Call %s"
+msgstr ""
+
+#. translators: %s: phone number.
+#: header.php:74
+#, php-format
+msgid "Call us on %s"
+msgstr ""
+
+#: header.php:93
+msgid "Close menu"
+msgstr ""
+
+#: inc/template-tags.php:226
+msgid "Colour"
+msgstr ""
+
+#: footer.php:42
+msgid "Cut with intent."
+msgstr ""
+
+#: inc/template-tags.php:225
+msgid "Cuts and styling"
+msgstr ""
+
+#: inc/customizer.php:32
+msgid "Demo site: use fictional numbers only (+65 6xxx 0000 / +65 8xxx 0000)."
+msgstr ""
+
+#: inc/template-tags.php:251
+msgid "Dewlab"
+msgstr ""
+
+#: inc/elementor-kit.php:132
+msgid "Elementor active"
+msgstr ""
+
+#: header.php:44
+msgid "Find an outlet"
+msgstr ""
+
+#: footer.php:92
+msgid "First visit? Ask about S$10 off"
+msgstr ""
+
+#: inc/setup.php:38
+msgid "Footer: legal links"
+msgstr ""
+
+#: inc/setup.php:37
+msgid "Footer: services"
+msgstr ""
+
+#: inc/elementor-kit.php:141
+msgid "Found"
+msgstr ""
+
+#: inc/elementor-kit.php:140
+msgid "Generated kit"
+msgstr ""
+
+#: inc/elementor-kit.php:77
+msgid "Generated kit not found. Run \"pnpm build\" and upload assets/build/."
+msgstr ""
+
+#: footer.php:131 header.php:103
+msgid "Hi Sable & Shear, I'd like to book an appointment. (sent from website)"
+msgstr ""
+
+#: footer.php:32
+msgid "Holland Village"
+msgstr ""
+
+#: inc/elementor-kit.php:123
+msgid "Kit applied. Global colours, fonts and Theme Style now match the design tokens."
+msgstr ""
+
+#: footer.php:111
+msgid "Legal"
+msgstr ""
+
+#: header.php:63 header.php:96
+msgid "Main"
+msgstr ""
+
+#: header.php:90
+msgid "Menu"
+msgstr ""
+
+#: inc/elementor-kit.php:141
+msgid "Missing (run pnpm build)"
+msgstr ""
+
+#: footer.php:85
+msgid "Mon to Fri"
+msgstr ""
+
+#: inc/customizer.php:43
+msgid "Next.js showcase URL (sister brands)"
+msgstr ""
+
+#: inc/elementor-kit.php:133
+msgid "No"
+msgstr ""
+
+#: inc/elementor-kit.php:73
+msgid "No active Elementor kit found. Activate Elementor and open the editor once so it creates the default kit."
+msgstr ""
+
+#: inc/elementor-kit.php:137
+msgid "None"
+msgstr ""
+
+#: inc/template-tags.php:201
+msgid "Offers"
+msgstr ""
+
+#: header.php:56
+msgid "Open menu"
+msgstr ""
+
+#: footer.php:82
+msgid "Opening hours"
+msgstr ""
+
+#: header.php:40
+msgid "Orrin Collective"
+msgstr ""
+
+#: header.php:42
+msgid "Orrin Collective studios"
+msgstr ""
+
+#: header.php:115
+msgid "Orrin Collective studios (menu)"
+msgstr ""
+
+#: inc/template-tags.php:199
+msgid "Our team"
+msgstr ""
+
+#: footer.php:64 inc/template-tags.php:200
+msgid "Outlets"
+msgstr ""
+
+#: inc/customizer.php:39
+msgid "Phone (E.164, for tel: links)"
+msgstr ""
+
+#: inc/customizer.php:38
+msgid "Phone (as displayed)"
+msgstr ""
+
+#: inc/template-tags.php:198
+msgid "Pricing"
+msgstr ""
+
+#: inc/customizer.php:42
+msgid "Primary button label"
+msgstr ""
+
+#: inc/setup.php:36
+msgid "Primary navigation (header and mobile drawer)"
+msgstr ""
+
+#: footer.php:130
+msgid "Quick booking"
+msgstr ""
+
+#: inc/template-tags.php:256
+msgid "Rootwell"
+msgstr ""
+
+#: inc/template-tags.php:246
+msgid "Sable & Shear"
+msgstr ""
+
+#: inc/elementor-kit.php:121
+msgid "Sable & Shear Elementor kit"
+msgstr ""
+
+#: inc/elementor-kit.php:24 inc/elementor-kit.php:25
+msgid "Sable & Shear kit"
+msgstr ""
+
+#: inc/customizer.php:31
+msgid "Sable & Shear: contact and booking"
+msgstr ""
+
+#: inc/assets.php:114
+msgid "Sable & Shear: generated assets (tokens, fonts, Elementor kit) are missing. Run \"pnpm build\" in the repository and upload themes/sable-hello-child/assets/build/."
+msgstr ""
+
+#: footer.php:87
+msgid "Sat and Sun"
+msgstr ""
+
+#: footer.php:46 footer.php:53 inc/template-tags.php:197 inc/template-tags.php:230
+msgid "Services"
+msgstr ""
+
+#: footer.php:105
+msgid "Sister studios"
+msgstr ""
+
+#: header.php:28
+msgid "Skip to content"
+msgstr ""
+
+#: footer.php:24
+msgid "Tanjong Pagar"
+msgstr ""
+
+#: footer.php:28
+msgid "Tiong Bahru"
+msgstr ""
+
+#: footer.php:133
+msgid "WhatsApp"
+msgstr ""
+
+#: inc/customizer.php:40
+msgid "WhatsApp number (digits, with country code)"
+msgstr ""
+
+#: header.php:105
+msgid "WhatsApp us (opens WhatsApp)"
+msgstr ""
+
+#: inc/elementor-kit.php:128
+msgid "Writes the generated Global Colors, Global Fonts, Theme Style (buttons, links, form fields, images), layout width and breakpoints into the active Elementor kit. Works with free Elementor. Re-run after the tokens change."
+msgstr ""
+
+#: inc/elementor-kit.php:133
+msgid "Yes"
+msgstr ""
+
+#: inc/elementor-kit.php:97
+msgid "You are not allowed to change the Elementor kit."
+msgstr ""
+
+#. translators: %s: year.
+#: footer.php:121
+#, php-format
+msgid "© %s Orrin Collective (fictional demo). Phone numbers and addresses are not real. Photos: Unsplash/Pexels."
+msgstr ""
+
