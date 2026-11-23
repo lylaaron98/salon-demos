@@ -3,7 +3,7 @@
 This folder holds the WordPress code for the two builder-based brand sites,
 following the zero-cost route (no paid licences, no paid hosting):
 
-| Path (planned)                   | What                                                         |
+| Path                             | What                                                         |
 | -------------------------------- | ------------------------------------------------------------ |
 | `themes/sable-hello-child/`      | Sable & Shear: Hello Elementor child theme (free Elementor)  |
 | `themes/dewlab-block/`           | Dewlab Skin Studio: block theme driven by token `theme.json` |
@@ -27,3 +27,20 @@ pnpm --filter @salon-demos/wordpress lint    # ESLint for the vanilla JS shipped
 The build copies `packages/tokens/dist/tokens.css` and `elementor-kit.json` into
 `themes/sable-hello-child/assets/build/` (git-ignored), adds self-hosted WOFF2 fonts and writes an
 Elementor kit zip. See [`themes/sable-hello-child/README.md`](themes/sable-hello-child/README.md).
+
+## PHP quality tools
+
+`composer.json` holds dev tools only (nothing is installed on the server):
+
+```sh
+cd wordpress
+composer install
+composer check   # php -l on every file, then PHPCS and PHPStan
+composer phpcs   # WordPress Coding Standards + PHPCompatibilityWP (phpcs.xml.dist)
+composer phpstan # level 6 with WordPress stubs (phpstan.neon.dist)
+composer phpcbf  # auto-fix what PHPCS can
+```
+
+PHPStan reads `stubs/elementor.php` (the few Elementor classes the code touches; Elementor has no
+official stubs package) and `stubs/constants.php`. PHP files are invisible to Prettier and ESLint,
+so the root `pnpm lint` is unaffected.

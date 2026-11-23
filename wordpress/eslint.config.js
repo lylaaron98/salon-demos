@@ -11,5 +11,9 @@ export default [
       sourceType: "script",
       globals: { ...globals.browser },
     },
+    rules: {
+      // Shipped without a build step as ES5-style prototypes, where `var self = this` is idiomatic.
+      "@typescript-eslint/no-this-alias": "off",
+    },
   },
 ];

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "salon-booking-enquiry/enquiry-form",
+  "version": "1.0.0",
+  "title": "Salon enquiry form",
+  "category": "widgets",
+  "icon": "calendar-alt",
+  "description": "Multi-step salon enquiry form with live availability. Same markup as the Elementor widget and the [salon_enquiry] shortcode.",
+  "keywords": ["booking", "enquiry", "salon", "appointment"],
+  "textdomain": "salon-booking-enquiry",
+  "attributes": {
+    "brand": { "type": "string", "default": "sable" },
+    "outlets": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "services": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "heading": { "type": "string", "default": "" },
+    "intro": { "type": "string", "default": "" },
+    "submitLabel": { "type": "string", "default": "" },
+    "showSchedule": { "type": "boolean", "default": true },
+    "askEmail": { "type": "boolean", "default": false },
+    "formId": { "type": "string", "default": "enquiry" }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "anchor": true
+  },
+  "editorScript": "sbe-enquiry-block-editor",
+  "style": "sbe-enquiry-form"
+}

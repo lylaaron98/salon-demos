@@ -1,0 +1,107 @@
+/**
+ * Promo modal. Token-driven with system-colour fallbacks (no hard-coded brand values).
+ */
+
+.sbe-promo {
+  box-sizing: border-box;
+  width: min(92vw, 480px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-card, 4px);
+  background: var(--color-bg-surface, var(--wp--preset--color--bg-surface, Canvas));
+  color: var(--color-text-primary, var(--wp--preset--color--text-primary, CanvasText));
+  box-shadow: var(--shadow-lg, none);
+}
+
+.sbe-promo::backdrop {
+  background: rgb(var(--brand-ink-rgb, 0 0 0) / 40%);
+}
+
+.sbe-promo[open] {
+  animation: sbe-promo-in var(--duration-base, 240ms) var(--ease-enter, ease-out);
+}
+
+@keyframes sbe-promo-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.sbe-promo__panel {
+  position: relative;
+  display: grid;
+  gap: var(--space-4, 1rem);
+  padding: var(--space-8, 2rem) var(--space-6, 1.5rem) var(--space-6, 1.5rem);
+}
+
+.sbe-promo__close {
+  position: absolute;
+  top: var(--space-2, 0.5rem);
+  right: var(--space-2, 0.5rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min, 44px);
+  height: var(--tap-min, 44px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-button, 2px);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sbe-promo__close:focus-visible,
+.sbe-promo .sbe-btn:focus-visible {
+  outline: 2px solid var(--color-focus-ring, var(--color-action-bg, CanvasText));
+  outline-offset: 2px;
+}
+
+.sbe-promo__title {
+  margin: 0;
+  padding-right: var(--space-8, 2rem);
+  font-family: var(--font-family-display, inherit);
+  font-size: var(--font-size-2xl, 1.6rem);
+}
+
+.sbe-promo__body {
+  margin: 0;
+}
+
+.sbe-promo__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3, 0.75rem);
+  align-items: center;
+}
+
+.sbe-promo .sbe-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--button-height, 48px);
+  padding: var(--space-3, 0.75rem) var(--space-6, 1.5rem);
+  border: 1px solid var(--color-action-bg, var(--wp--preset--color--action-primary, CanvasText));
+  border-radius: var(--radius-button, 2px);
+  background: var(--color-action-bg, var(--wp--preset--color--action-primary, CanvasText));
+  color: var(--color-action-text, Canvas);
+  font: inherit;
+  font-weight: var(--font-weight-semibold, 600);
+  text-decoration: none;
+  text-transform: var(--button-text-transform, none);
+  cursor: pointer;
+}
+
+.sbe-promo .sbe-btn--text {
+  border-color: transparent;
+  background: transparent;
+  color: var(--color-action-bg, var(--wp--preset--color--action-primary, LinkText));
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sbe-promo[open] {
+    animation: none;
+  }
+}

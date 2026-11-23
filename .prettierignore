@@ -4,3 +4,4 @@ node_modules/
 .turbo/
 dist/
 next-env.d.ts
+wordpress/composer.lock
