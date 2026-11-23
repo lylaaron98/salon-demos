@@ -229,4 +229,10 @@ export const sable = {
     blurb: "A hair atelier for considered cuts and colour. A fictional demo brand.",
     hours: ["Mon–Fri 10 am–9 pm", "Sat 9 am–7 pm", "Sun 10 am–6 pm"],
   },
+  offer: {
+    id: "first-visit",
+    label: "First-visit colour offer",
+    services: ["root-colour", "hand-painted-balayage"],
+    percentOff: 20,
+  },
 } satisfies Brand;

@@ -240,4 +240,10 @@ export const dewlab = {
     blurb: "A skin studio that analyses first and recommends second. A fictional demo brand.",
     hours: ["Mon–Fri 10 am–9 pm", "Sat 9 am–7 pm", "Sun 10 am–6 pm"],
   },
+  offer: {
+    id: "first-visit",
+    label: "First-visit trial",
+    services: ["hydra-glow-facial"],
+    price: 48,
+  },
 } satisfies Brand;

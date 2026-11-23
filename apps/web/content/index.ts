@@ -4,7 +4,7 @@ import { rootwell } from "./brands/rootwell";
 import { sable } from "./brands/sable";
 import type { Brand } from "./types";
 
-export type { Brand, Outlet, Service, TeamMember, Testimonial } from "./types";
+export type { Brand, BookingOffer, Outlet, Service, TeamMember, Testimonial } from "./types";
 
 /** The fictional umbrella group. */
 export const group = {
