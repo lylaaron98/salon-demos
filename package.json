@@ -1,0 +1,26 @@
+{
+  "name": "salon-demos",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Portfolio monorepo: multi-brand salon showcase for the fictional Orrin Collective group.",
+  "license": "MIT",
+  "author": "Aaron Lee",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint && prettier --check .",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@salon-demos/config": "workspace:*",
+    "prettier": "3.10.1",
+    "turbo": "2.11.13",
+    "typescript": "6.0.3"
+  },
+  "type": "module"
+}

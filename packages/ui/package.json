@@ -1,0 +1,20 @@
+{
+  "name": "@salon-demos/ui",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared React components for the salon-demos brands (placeholder).",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@salon-demos/config": "workspace:*",
+    "eslint": "9.39.5",
+    "typescript": "6.0.3"
+  }
+}
