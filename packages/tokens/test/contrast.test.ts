@@ -17,6 +17,8 @@ const TEXT_PAIRS: Pair[] = [
   { label: "body text on subtle", fg: (c) => c.text.primary, bg: (c) => c.bg.subtle },
   { label: "muted text on page", fg: (c) => c.text.muted, bg: (c) => c.bg.page },
   { label: "muted text on surface", fg: (c) => c.text.muted, bg: (c) => c.bg.surface },
+  // Notes and captions inside tinted sections (e.g. the GST note under pricing).
+  { label: "muted text on subtle", fg: (c) => c.text.muted, bg: (c) => c.bg.subtle },
   { label: "accent text on page", fg: (c) => c.text.accent, bg: (c) => c.bg.page },
   { label: "on-accent text on accent", fg: (c) => c.text["on-accent"], bg: (c) => c.bg.accent },
   { label: "inverse text on inverse", fg: (c) => c.text.inverse, bg: (c) => c.bg.inverse },
