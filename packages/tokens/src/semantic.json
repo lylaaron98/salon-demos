@@ -1,0 +1,183 @@
+{
+  "color": {
+    "$type": "color",
+    "bg": {
+      "page": {
+        "$value": "{p.paper-50}"
+      },
+      "surface": {
+        "$value": "{p.neutral-0}"
+      },
+      "subtle": {
+        "$value": "{p.neutral-0}"
+      },
+      "inverse": {
+        "$value": "{p.ink-900}"
+      },
+      "accent": {
+        "$value": "{p.ink-900}"
+      }
+    },
+    "text": {
+      "primary": {
+        "$value": "{p.ink-900}"
+      },
+      "muted": {
+        "$value": "{p.ink-600}"
+      },
+      "inverse": {
+        "$value": "{p.paper-50}"
+      },
+      "accent": {
+        "$value": "{p.ink-900}"
+      },
+      "on-accent": {
+        "$value": "{p.paper-50}"
+      }
+    },
+    "action": {
+      "bg": {
+        "$value": "{p.ink-900}"
+      },
+      "bg-hover": {
+        "$value": "#3A3633"
+      },
+      "bg-pressed": {
+        "$value": "#3A3633"
+      },
+      "text": {
+        "$value": "{p.neutral-0}"
+      },
+      "secondary-border": {
+        "$value": "{p.ink-900}"
+      },
+      "secondary-text": {
+        "$value": "{p.ink-900}"
+      }
+    },
+    "border": {
+      "input": {
+        "$value": "{p.ink-600}"
+      },
+      "subtle": {
+        "$value": "#DDD8D0"
+      }
+    },
+    "focus-ring": {
+      "$value": "{p.ink-900}"
+    },
+    "decor-accent": {
+      "$value": "{p.ink-900}"
+    },
+    "focus-ring-inverse": {
+      "$value": "{p.neutral-0}",
+      "$description": "Focus ring on dark surfaces (bg-inverse, action-bg)"
+    },
+    "error": {
+      "$value": "{p.red-700}"
+    },
+    "success": {
+      "$value": "{p.green-700}"
+    },
+    "warning": {
+      "$value": "{p.amber-700}"
+    },
+    "whatsapp": {
+      "bg": {
+        "$value": "{p.whatsapp-500}"
+      },
+      "text": {
+        "$value": "{p.whatsapp-900}"
+      }
+    },
+    "call": {
+      "bg": {
+        "$value": "{p.call-700}"
+      },
+      "text": {
+        "$value": "{p.neutral-0}"
+      }
+    }
+  },
+  "font-family": {
+    "$type": "fontFamily",
+    "display": {
+      "$value": "Manrope, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    },
+    "body": {
+      "$value": "Manrope, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    },
+    "$description": "Comma-separated font stack, first entry is the brand web font. Stored as a string (not an array) so brand files replace the whole stack instead of merging by index."
+  },
+  "brand": {
+    "ink-rgb": {
+      "$value": "28 26 25",
+      "$description": "Brand ink as space-separated RGB, used to tint shadows"
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "button": {
+      "$value": "{radius.xs}"
+    },
+    "card": {
+      "$value": "{radius.md}"
+    },
+    "input": {
+      "$value": "{radius.xs}"
+    },
+    "chip": {
+      "$value": "{radius.pill}"
+    }
+  },
+  "button": {
+    "text-transform": {
+      "$value": "none"
+    },
+    "letter-spacing": {
+      "$type": "dimension",
+      "$value": "{letter-spacing.normal}"
+    },
+    "font-weight": {
+      "$type": "fontWeight",
+      "$value": "{font-weight.semibold}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font-size.md}"
+    },
+    "height": {
+      "$type": "dimension",
+      "$value": "48px"
+    }
+  },
+  "display": {
+    "weight": {
+      "$type": "fontWeight",
+      "$value": "{font-weight.semibold}"
+    },
+    "letter-spacing": {
+      "$type": "dimension",
+      "$value": "{letter-spacing.tight}"
+    }
+  },
+  "$description": "Semantic tier. Defaults are the neutral Orrin Collective group theme; brand files re-point these.",
+  "shadow": {
+    "$description": "Tinted with the brand ink at low alpha. Re-emitted in every brand block so the tint follows data-brand.",
+    "none": {
+      "$value": "none"
+    },
+    "sm": {
+      "$value": "0 1px 2px rgb({brand.ink-rgb} / 0.06), 0 1px 3px rgb({brand.ink-rgb} / 0.08)"
+    },
+    "md": {
+      "$value": "0 4px 8px -2px rgb({brand.ink-rgb} / 0.08), 0 2px 4px -2px rgb({brand.ink-rgb} / 0.06)"
+    },
+    "lg": {
+      "$value": "0 12px 24px -6px rgb({brand.ink-rgb} / 0.12), 0 4px 8px -4px rgb({brand.ink-rgb} / 0.06)"
+    },
+    "sticky": {
+      "$value": "0 -4px 16px rgb({brand.ink-rgb} / 0.1)"
+    }
+  }
+}

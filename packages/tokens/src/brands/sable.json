@@ -1,0 +1,132 @@
+{
+  "$description": "Brand tier for Sable & Shear ([data-brand=\"sable\"]). Re-points semantic tokens only.",
+  "color": {
+    "$type": "color",
+    "bg": {
+      "page": {
+        "$value": "{p.linen-50}"
+      },
+      "surface": {
+        "$value": "{p.neutral-0}"
+      },
+      "subtle": {
+        "$value": "#EFE8E0"
+      },
+      "inverse": {
+        "$value": "{p.noir-900}"
+      },
+      "accent": {
+        "$value": "{p.aubergine-800}"
+      }
+    },
+    "text": {
+      "primary": {
+        "$value": "{p.noir-900}"
+      },
+      "muted": {
+        "$value": "{p.taupe-600}"
+      },
+      "inverse": {
+        "$value": "{p.linen-50}"
+      },
+      "accent": {
+        "$value": "{p.brass-700}"
+      },
+      "on-accent": {
+        "$value": "{p.linen-50}"
+      }
+    },
+    "action": {
+      "bg": {
+        "$value": "{p.aubergine-800}"
+      },
+      "bg-hover": {
+        "$value": "{p.aubergine-700}"
+      },
+      "bg-pressed": {
+        "$value": "{p.aubergine-700}"
+      },
+      "text": {
+        "$value": "{p.neutral-0}"
+      },
+      "secondary-border": {
+        "$value": "{p.aubergine-800}"
+      },
+      "secondary-text": {
+        "$value": "{p.aubergine-800}"
+      }
+    },
+    "border": {
+      "input": {
+        "$value": "{p.taupe-400}"
+      },
+      "subtle": {
+        "$value": "{p.linen-200}"
+      }
+    },
+    "focus-ring": {
+      "$value": "{p.aubergine-800}"
+    },
+    "decor-accent": {
+      "$value": "{p.brass-500}"
+    }
+  },
+  "font-family": {
+    "$type": "fontFamily",
+    "display": {
+      "$value": "Cormorant Garamond, Georgia, Times New Roman, serif"
+    },
+    "body": {
+      "$value": "Manrope, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    },
+    "$description": "Comma-separated font stack, first entry is the brand web font. Stored as a string (not an array) so brand files replace the whole stack instead of merging by index."
+  },
+  "brand": {
+    "ink-rgb": {
+      "$value": "42 32 36",
+      "$description": "Brand ink as space-separated RGB, used to tint shadows"
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "button": {
+      "$value": "{radius.xs}"
+    },
+    "card": {
+      "$value": "{radius.xs}"
+    },
+    "input": {
+      "$value": "{radius.xs}"
+    },
+    "chip": {
+      "$value": "{radius.xs}"
+    }
+  },
+  "button": {
+    "text-transform": {
+      "$value": "uppercase"
+    },
+    "letter-spacing": {
+      "$type": "dimension",
+      "$value": "{letter-spacing.caps}"
+    },
+    "font-weight": {
+      "$type": "fontWeight",
+      "$value": "{font-weight.semibold}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font-size.sm}"
+    }
+  },
+  "display": {
+    "weight": {
+      "$type": "fontWeight",
+      "$value": "{font-weight.medium}"
+    },
+    "letter-spacing": {
+      "$type": "dimension",
+      "$value": "-0.01em"
+    }
+  }
+}
