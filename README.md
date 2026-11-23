@@ -39,6 +39,7 @@ apps/
   web/              Next.js App Router showcase
 packages/
   config/           Shared ESLint, Prettier and tsconfig presets
+  tokens/           Design tokens (Style Dictionary): CSS, TS, Elementor, theme.json, Divi
   ui/               Shared React components (coming soon)
 wordpress/          Themes, plugin and Playground blueprints (coming soon)
 ```
@@ -52,6 +53,8 @@ pnpm install        # install all workspace dependencies
 pnpm dev            # run the Next.js app at http://localhost:3000
 ```
 
+The token swatch page with a brand switcher lives at `/tokens`.
+
 ## Commands
 
 All commands run from the repo root and fan out through Turborepo.
@@ -62,6 +65,7 @@ All commands run from the repo root and fan out through Turborepo.
 | `pnpm build`     | Production build of every package (Next.js included)       |
 | `pnpm lint`      | ESLint in every package, then a Prettier check of the repo |
 | `pnpm typecheck` | `tsc --noEmit` in every package                            |
+| `pnpm test`      | Unit tests (token WCAG AA contrast checks)                 |
 | `pnpm format`    | Format the whole repo with Prettier                        |
 
 Run a single package with a filter, for example `pnpm --filter web dev`.
@@ -69,8 +73,8 @@ Run a single package with a filter, for example `pnpm --filter web dev`.
 ## Continuous integration
 
 `.github/workflows/ci.yml` runs on every pull request and on pushes to `main`. It installs with
-pnpm (store and Turborepo caches restored) and runs `lint`, `typecheck` and `build` as separate
-jobs, so each shows up as its own status check.
+pnpm (store and Turborepo caches restored) and runs `lint`, `typecheck`, `test` and `build` as
+separate jobs, so each shows up as its own status check.
 
 ## Licence
 
