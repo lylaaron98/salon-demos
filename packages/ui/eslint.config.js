@@ -1,1 +1,1 @@
-export { default } from "@salon-demos/config/eslint/base";
+export { default } from "@salon-demos/config/eslint/react";
