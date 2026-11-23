@@ -1,0 +1,19 @@
+/*
+Theme Name:        Dewlab Skin Studio (Divi child)
+Theme URI:         https://github.com/lylaaron98/salon-demos
+Description:       Divi child theme for Dewlab Skin Studio, a fictional skin studio in the Orrin Collective demo. Token-generated Divi CSS, self-hosted fonts, Global Colors and Presets mapping. Kept ready for when a Divi licence exists; the live demo uses the dewlab-block theme.
+Author:            Aaron Lee
+Author URI:        https://github.com/lylaaron98
+Template:          Divi
+Version:           1.0.0
+Requires at least: 6.5
+Requires PHP:      8.1
+License:           GPL-2.0-or-later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       dewlab-divi-child
+*/
+
+/*
+ * Styles live in assets/build/divi-child.css and assets/build/fonts.css (both generated from
+ * packages/tokens). This file only carries the theme header WordPress reads.
+ */

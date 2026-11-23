@@ -2,7 +2,8 @@
 
 Standalone block theme (Full Site Editing) for the fictional **Dewlab Skin Studio** (an Orrin
 Collective demo brand). It replaces the Divi build from the original plan on the zero-cost route:
-no licence, no page builder, no jQuery and no theme JavaScript.
+no licence, no page builder, no jQuery and no theme JavaScript. The same design is also kept as a
+Divi child theme for when a licence exists: [`../dewlab-divi-child/`](../dewlab-divi-child/).
 
 The booking form and FAQ come from the companion plugin
 [`salon-booking-enquiry`](../../plugins/salon-booking-enquiry/) (block and shortcodes).

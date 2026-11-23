@@ -7,7 +7,7 @@ following the zero-cost route (no paid licences, no paid hosting):
 | -------------------------------- | ------------------------------------------------------------ |
 | `themes/sable-hello-child/`      | Sable & Shear: Hello Elementor child theme (free Elementor)  |
 | `themes/dewlab-block/`           | Dewlab Skin Studio: block theme driven by token `theme.json` |
-| `themes/divi-child/`             | Dewlab Divi child theme, documented but not deployed         |
+| `themes/dewlab-divi-child/`      | Dewlab Divi child theme, ready for a licence, not deployed   |
 | `plugins/salon-booking-enquiry/` | PHP plugin: Elementor widget, enquiry CPT, REST endpoint     |
 | `playground/`                    | WordPress Playground blueprints for one-click demos          |
 
@@ -34,6 +34,9 @@ in `scripts/lib/`). All output is git-ignored:
   `packages/tokens/dist/theme.json` and the hand-written `theme.base.json`, with `fontFace` for the
   self-hosted fonts, plus resolved token variables. See
   [`themes/dewlab-block/README.md`](themes/dewlab-block/README.md).
+- **Dewlab on Divi** (`themes/dewlab-divi-child/assets/build/`): `divi-child.css` from the token
+  build, self-hosted fonts and the Global Colors list as JSON. See
+  [`themes/dewlab-divi-child/README.md`](themes/dewlab-divi-child/README.md).
 
 ## PHP quality tools
 

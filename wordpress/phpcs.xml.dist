@@ -4,6 +4,7 @@
 
 	<file>themes/sable-hello-child</file>
 	<file>themes/dewlab-block</file>
+	<file>themes/dewlab-divi-child</file>
 	<file>plugins/salon-booking-enquiry</file>
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>
@@ -47,6 +48,7 @@
 			<property name="text_domain" type="array">
 				<element value="sable-hello-child"/>
 				<element value="dewlab-block"/>
+				<element value="dewlab-divi-child"/>
 				<element value="salon-booking-enquiry"/>
 			</property>
 		</properties>
