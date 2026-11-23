@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <ruleset name="salon-demos WordPress">
-	<description>WordPress Coding Standards for the salon-demos themes and the salon-booking-enquiry plugin.</description>
+	<description>WordPress Coding Standards for the salon-demos themes, the salon-booking-enquiry plugin and the Playground setup scripts.</description>
 
 	<file>themes/sable-hello-child</file>
 	<file>themes/dewlab-block</file>
 	<file>themes/dewlab-divi-child</file>
 	<file>plugins/salon-booking-enquiry</file>
+	<file>playground/setup</file>
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
@@ -37,6 +38,7 @@
 			<property name="prefixes" type="array">
 				<element value="sable"/>
 				<element value="dewlab"/>
+				<element value="salon_demo"/>
 				<element value="salon_booking_enquiry"/>
 				<element value="SalonBookingEnquiry"/>
 			</property>

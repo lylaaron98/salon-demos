@@ -38,6 +38,17 @@ in `scripts/lib/`). All output is git-ignored:
   build, self-hosted fonts and the Global Colors list as JSON. See
   [`themes/dewlab-divi-child/README.md`](themes/dewlab-divi-child/README.md).
 
+## Release zips and Playground demos
+
+```sh
+pnpm build && pnpm --filter @salon-demos/wordpress package   # -> wordpress/dist/<slug>.zip
+```
+
+`scripts/package-zips.mjs` zips each built theme and the plugin (slug as top-level folder). The
+[`wp-release`](../.github/workflows/wp-release.yml) workflow does the same on every push to `main`
+and attaches the zips to the rolling `wp-latest` pre-release, which the one-click
+[WordPress Playground demos](playground/README.md) install from.
+
 ## PHP quality tools
 
 `composer.json` holds dev tools only (nothing is installed on the server):

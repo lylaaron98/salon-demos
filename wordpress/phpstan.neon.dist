@@ -9,6 +9,7 @@ parameters:
 		- themes/dewlab-block
 		- themes/dewlab-divi-child
 		- plugins/salon-booking-enquiry
+		- playground/setup
 	excludePaths:
 		analyse:
 			- */vendor/*

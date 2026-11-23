@@ -48,6 +48,8 @@ namespace Elementor {
 		public $widgets_manager;
 		/** @var Elements_Manager */
 		public $elements_manager;
+		/** @var \Elementor\Core\Kits\Manager */
+		public $kits_manager;
 	}
 
 	abstract class Controls_Stack {
@@ -149,5 +151,20 @@ namespace {
 	 */
 	function elementor_theme_do_location( string $location ): bool {
 		return false;
+	}
+}
+
+namespace Elementor\Core\Kits {
+
+	class Manager {
+		/**
+		 * Create the default kit and make it active.
+		 *
+		 * @param array<string, mixed> $settings Kit settings.
+		 * @return int Kit post ID.
+		 */
+		public function create_default( array $settings = array() ): int {
+			return 0;
+		}
 	}
 }

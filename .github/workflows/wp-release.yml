@@ -1,0 +1,61 @@
+name: wp-release
+
+# Builds the WordPress themes and plugin (generated tokens, fonts, theme.json are git-ignored) and
+# attaches installable zips to the rolling `wp-latest` pre-release. The Playground blueprints in
+# wordpress/playground/ install from these asset URLs, which never change:
+#   https://github.com/<owner>/<repo>/releases/download/wp-latest/<slug>.zip
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "wordpress/**"
+      - "packages/tokens/**"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/wp-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wp-release
+  cancel-in-progress: false
+
+env:
+  TURBO_TELEMETRY_DISABLED: "1"
+  TURBO_CACHE_DIR: .turbo/cache
+  TAG: wp-latest
+
+jobs:
+  release:
+    name: build and publish wp-latest
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./.github/actions/setup
+
+      - name: Build tokens and theme assets
+        run: pnpm turbo run build --filter=@salon-demos/wordpress...
+
+      - name: Package zips
+        run: pnpm --filter @salon-demos/wordpress package
+
+      - name: Move the wp-latest tag to this commit
+        run: |
+          git tag -f "$TAG" "$GITHUB_SHA"
+          git push -f origin "refs/tags/$TAG"
+
+      - name: Create or update the release and upload zips
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          notes="Rolling build of the WordPress themes and plugin from ${GITHUB_SHA::7} on main.
+          Used by the WordPress Playground blueprints in wordpress/playground/. Fictional demo brands."
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --prerelease --title "WordPress demo (latest main)" --notes "$notes"
+          else
+            gh release create "$TAG" --prerelease --verify-tag --title "WordPress demo (latest main)" --notes "$notes"
+          fi
+          gh release upload "$TAG" wordpress/dist/*.zip --clobber
