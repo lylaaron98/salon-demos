@@ -54,7 +54,6 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
 }
 
 .caption {
@@ -83,7 +82,7 @@
 }
 
 .serviceCol {
-  width: 60%;
+  width: auto;
 }
 
 .table .priceCol,
@@ -232,7 +231,7 @@
   }
 
   .serviceCol {
-    width: auto;
+    width: 45%;
   }
 
   .plans {

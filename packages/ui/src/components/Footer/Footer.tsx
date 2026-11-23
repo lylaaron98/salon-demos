@@ -20,7 +20,7 @@ export type FooterProps = {
   signupTitle?: string;
   group: FooterLink;
   sisterBrands: FooterLink[];
-  legal: FooterLink[];
+  legal?: FooterLink[];
   /** Small print at the very bottom. */
   copyright: string;
   /** Used by the sticky book bar to hide while the footer is in view. */
@@ -62,7 +62,7 @@ export function Footer({
   signupTitle = "Join for S$10 off",
   group,
   sisterBrands,
-  legal,
+  legal = [],
   copyright,
   id = "site-footer",
 }: FooterProps) {
@@ -178,15 +178,17 @@ export function Footer({
               ))}
             </ul>
           </nav>
-          <ul className={styles.inlineLinks}>
-            {legal.map((link) => (
-              <li key={link.label}>
-                <a className={styles.link} href={link.href}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {legal.length > 0 ? (
+            <ul className={styles.inlineLinks}>
+              {legal.map((link) => (
+                <li key={link.label}>
+                  <a className={styles.link} href={link.href}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : null}
           <p className={styles.copyright}>{copyright}</p>
         </div>
       </div>

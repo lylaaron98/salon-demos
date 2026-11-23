@@ -1,0 +1,248 @@
+/* Brand pages. Token variables only; the brand comes from data-brand on .shell. */
+
+.shell {
+  min-height: 100vh;
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+}
+
+/* Room for the sticky book bar under the footer, so nothing is hidden behind it. */
+@media (max-width: 1023.98px) {
+  .shell:has(nav[aria-label="Quick booking"]) footer {
+    padding-bottom: calc(var(--space-16) + env(safe-area-inset-bottom));
+  }
+}
+
+.main:focus {
+  outline: none;
+}
+
+.anchor {
+  scroll-margin-top: var(--space-20);
+}
+
+.section,
+.sectionSubtle {
+  padding-block: var(--layout-section-y);
+  scroll-margin-top: var(--space-16);
+}
+
+.sectionSubtle {
+  background: var(--color-bg-subtle);
+}
+
+.container,
+.containerNarrow {
+  max-width: var(--layout-max);
+  margin: 0 auto;
+  padding-inline: var(--layout-gutter-mobile);
+}
+
+.containerNarrow {
+  max-width: calc(var(--layout-max-narrow) + 2 * var(--layout-gutter-mobile));
+}
+
+.sectionHead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-3xl);
+  text-wrap: balance;
+}
+
+.sectionIntro {
+  max-width: var(--layout-measure);
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-primary);
+}
+
+.sectionAction {
+  display: inline-flex;
+  gap: var(--space-1);
+  align-items: center;
+  min-height: var(--tap-min);
+  color: var(--color-text-accent);
+  font-weight: var(--font-weight-semibold);
+  text-underline-offset: 0.25em;
+}
+
+.sectionAction:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.serviceGrid,
+.threeGrid,
+.whyGrid,
+.teamRail {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.serviceGrid,
+.threeGrid,
+.whyGrid {
+  display: grid;
+  gap: var(--layout-grid-gap-mobile);
+}
+
+.why {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+
+.whyMark {
+  color: var(--color-text-accent);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--display-weight);
+}
+
+.whyTitle {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+}
+
+.whyBody {
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+/* Team: horizontal scroll-snap rail on mobile (70vw cards), grid from tablet. */
+.teamRail {
+  display: grid;
+  grid-auto-columns: 70vw;
+  grid-auto-flow: column;
+  gap: var(--layout-grid-gap-mobile);
+  margin-inline: calc(-1 * var(--layout-gutter-mobile));
+  padding: var(--space-1) var(--layout-gutter-mobile) var(--space-4);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: var(--layout-gutter-mobile);
+  scroll-snap-type: x mandatory;
+}
+
+.teamRail > li {
+  scroll-snap-align: start;
+}
+
+.teamRail:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+}
+
+/* Closing CTA band on bg-inverse. */
+.ctaBand {
+  --focus-ring: var(--color-focus-ring-inverse);
+
+  padding-block: var(--layout-section-y);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-4xl);
+  text-wrap: balance;
+}
+
+.ctaBody {
+  max-width: 40rem;
+  margin: var(--space-4) auto 0;
+  font-size: var(--font-size-lg);
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-top: var(--space-8);
+}
+
+/* Booking placeholder page */
+
+.bookPage {
+  padding-block: var(--layout-section-y);
+}
+
+.bookTitle {
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-4xl);
+}
+
+.bookLead {
+  max-width: var(--layout-measure);
+  margin: var(--space-4) 0 0;
+  font-size: var(--font-size-lg);
+}
+
+.bookActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .container,
+  .containerNarrow {
+    padding-inline: var(--layout-gutter-tablet);
+  }
+
+  .containerNarrow {
+    max-width: calc(var(--layout-max-narrow) + 2 * var(--layout-gutter-tablet));
+  }
+
+  .serviceGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--layout-grid-gap-tablet);
+  }
+
+  .threeGrid,
+  .whyGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--layout-grid-gap-tablet);
+  }
+
+  .teamRail {
+    grid-auto-columns: auto;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--layout-grid-gap-tablet);
+    margin-inline: 0;
+    padding: 0;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 1023.98px) and (min-width: 768px) {
+  .threeGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .container,
+  .containerNarrow {
+    padding-inline: var(--layout-gutter-desktop);
+  }
+
+  .containerNarrow {
+    max-width: calc(var(--layout-max-narrow) + 2 * var(--layout-gutter-desktop));
+  }
+
+  .serviceGrid,
+  .teamRail {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
