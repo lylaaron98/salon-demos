@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { ConsentDefaults, TagManager } from "./_components/Analytics";
 import { ConsentBanner } from "./_components/ConsentBanner";
+import { ContactTracker } from "./_components/ContactTracker";
 import { brandFontVariables, manrope } from "./fonts";
 import "./globals.css";
 
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <body>
         <ConsentBanner />
         {children}
+        <ContactTracker />
       </body>
       <TagManager />
     </html>
