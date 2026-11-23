@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750" role="img" aria-labelledby="t">
+  <title id="t">Abstract illustration: dew drops on a blush arch</title>
+  <defs>
+    <radialGradient id="g" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F2D8D2"/>
+    </radialGradient>
+    <radialGradient id="d" cx="35%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/>
+      <stop offset=".55" stop-color="#E8C4BC" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#D27D86" stop-opacity=".55"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="750" fill="#FBF5F2"/>
+  <path d="M60 750V330C60 180 168 70 300 70s240 110 240 260v420z" fill="url(#g)"/>
+  <path d="M120 750V350c0-110 80-200 180-200s180 90 180 200v400" fill="none" stroke="#D27D86" stroke-opacity=".35" stroke-width="2"/>
+  <circle cx="226" cy="330" r="64" fill="url(#d)"/>
+  <circle cx="368" cy="250" r="30" fill="url(#d)"/>
+  <circle cx="392" cy="452" r="88" fill="url(#d)"/>
+  <circle cx="250" cy="560" r="38" fill="url(#d)"/>
+  <circle cx="330" cy="640" r="18" fill="url(#d)"/>
+  <circle cx="452" cy="330" r="12" fill="url(#d)"/>
+  <ellipse cx="206" cy="306" rx="18" ry="10" fill="#FFFFFF" opacity=".85" transform="rotate(-30 206 306)"/>
+  <ellipse cx="362" cy="414" rx="24" ry="13" fill="#FFFFFF" opacity=".8" transform="rotate(-30 362 414)"/>
+  <ellipse cx="240" cy="546" rx="10" ry="6" fill="#FFFFFF" opacity=".85" transform="rotate(-30 240 546)"/>
+</svg>
