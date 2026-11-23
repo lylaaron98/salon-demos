@@ -66,6 +66,12 @@ All commands run from the repo root and fan out through Turborepo.
 
 Run a single package with a filter, for example `pnpm --filter web dev`.
 
+## Continuous integration
+
+`.github/workflows/ci.yml` runs on every pull request and on pushes to `main`. It installs with
+pnpm (store and Turborepo caches restored) and runs `lint`, `typecheck` and `build` as separate
+jobs, so each shows up as its own status check.
+
 ## Licence
 
 [MIT](./LICENSE) © Aaron Lee
