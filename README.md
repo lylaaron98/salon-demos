@@ -53,8 +53,18 @@ pnpm install        # install all workspace dependencies
 pnpm dev            # run the Next.js app at http://localhost:3000
 ```
 
-The token swatch page with a brand switcher lives at `/tokens`, and the component showcase at
-`/components`.
+Routes in `apps/web`:
+
+| Route           | What it is                                                                   |
+| --------------- | ---------------------------------------------------------------------------- |
+| `/`             | Orrin Collective group hub linking the three studios                         |
+| `/[brand]`      | Brand home (`sable`, `dewlab`, `rootwell`), statically generated; others 404 |
+| `/[brand]/book` | Booking placeholder (the step-by-step flow lands in a later PR)              |
+| `/components`   | Every `@salon-demos/ui` component under a brand switcher                     |
+| `/tokens`       | Token swatches, type scale and contrast checks per theme                     |
+
+Brand content lives in typed data files under `apps/web/content/brands/`. The `[brand]` layout sets
+`data-brand` on its wrapper, so every token variable inside resolves to that brand's theme.
 
 ## Commands
 
