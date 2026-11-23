@@ -38,6 +38,16 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./.github/actions/setup
+      - name: Test (token build + WCAG contrast)
+        run: pnpm test
+
   build:
     name: build
     runs-on: ubuntu-latest
