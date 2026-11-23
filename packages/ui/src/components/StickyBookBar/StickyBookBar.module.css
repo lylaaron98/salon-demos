@@ -1,0 +1,124 @@
+/* Sticky mobile booking bar: 64px + safe area, below 1024px only. */
+
+.spacer {
+  height: calc(var(--space-16) + env(safe-area-inset-bottom));
+}
+
+.bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  height: calc(var(--space-16) + env(safe-area-inset-bottom));
+  padding: var(--space-2) var(--layout-gutter-mobile)
+    calc(var(--space-2) + env(safe-area-inset-bottom));
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sticky);
+  visibility: hidden;
+  transform: translateY(100%);
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    visibility 0s linear var(--duration-base);
+}
+
+.bar[data-visible] {
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.iconAction {
+  display: inline-flex;
+  flex: none;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--button-height);
+  height: var(--button-height);
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-button);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-decoration: none;
+}
+
+.iconAction[data-kind="whatsapp"] {
+  background: var(--color-whatsapp-bg);
+  color: var(--color-whatsapp-text);
+}
+
+.iconAction[data-kind="call"] {
+  background: var(--color-call-bg);
+  color: var(--color-call-text);
+}
+
+/* Labels are visible from 360px; below that they stay as the accessible name only. */
+.iconLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.book {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-button);
+  background: var(--color-action-bg);
+  color: var(--color-action-text);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  text-decoration: none;
+  text-transform: var(--button-text-transform);
+  white-space: nowrap;
+}
+
+.book:active {
+  background: var(--color-action-bg-pressed);
+}
+
+.iconAction:focus-visible,
+.book:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+@media (min-width: 360px) {
+  .iconAction {
+    min-width: calc(var(--button-height) + var(--space-4));
+  }
+
+  .iconLabel {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .spacer,
+  .bar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transition: none;
+  }
+}

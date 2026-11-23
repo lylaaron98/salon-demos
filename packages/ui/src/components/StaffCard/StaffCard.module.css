@@ -1,0 +1,146 @@
+/* Stylist / therapist card: profile and compact. */
+
+.card {
+  color: var(--color-text-primary);
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-surface);
+}
+
+.portrait {
+  position: relative;
+  overflow: hidden;
+}
+
+.portraitImage {
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.profile:hover .portraitImage {
+  transform: scale(1.03);
+}
+
+.demo {
+  position: absolute;
+  bottom: var(--space-2);
+  left: var(--space-2);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-chip);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-xs);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+.level {
+  color: var(--color-text-accent);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.name,
+.compactName {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-letter-spacing);
+}
+
+.name {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: 2px var(--space-2);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-chip);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.facts {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  font-size: var(--font-size-sm);
+}
+
+.facts div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.facts dt {
+  color: var(--color-text-muted);
+}
+
+.facts dt::after {
+  content: ":";
+}
+
+.facts dd {
+  margin: 0;
+}
+
+.cta {
+  margin-top: auto;
+}
+
+.compact {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.avatar {
+  flex: none;
+  width: var(--space-16);
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+}
+
+.compactName {
+  font-size: var(--font-size-lg);
+}
+
+.role {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portraitImage,
+  .profile:hover .portraitImage {
+    transition: none;
+    transform: none;
+  }
+}

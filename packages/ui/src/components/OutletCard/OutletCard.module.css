@@ -1,0 +1,112 @@
+/* Outlet locator card: list (with image and hours) and compact. */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-5);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--display-weight);
+  line-height: var(--line-height-xl);
+  letter-spacing: var(--display-letter-spacing);
+}
+
+.status {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  min-height: 1.5em;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.statusDot {
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-text-muted);
+}
+
+.status[data-state="open"] .statusDot {
+  background: var(--color-success);
+}
+
+.address,
+.mrt {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-style: normal;
+}
+
+.address svg,
+.mrt svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--color-text-accent);
+}
+
+.mrt {
+  color: var(--color-text-muted);
+}
+
+.hours {
+  display: grid;
+  gap: var(--space-1);
+  width: 100%;
+  margin: 0;
+  font-size: var(--font-size-sm);
+}
+
+.hours div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.hours dt {
+  color: var(--color-text-muted);
+}
+
+.hours dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  width: 100%;
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.book {
+  flex: 1 1 100%;
+}
+
+.actions > :not(.book) {
+  flex: 1 1 auto;
+  padding-inline: var(--space-3);
+}

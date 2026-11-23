@@ -34,7 +34,8 @@ export default function HomePage() {
       <footer className="footer">
         <p>
           Demo project. No bookings are made and no real business is represented.{" "}
-          <Link href="/tokens">View the design tokens</Link>.
+          <Link href="/tokens">View the design tokens</Link> or the{" "}
+          <Link href="/components">component library</Link>.
         </p>
       </footer>
     </main>

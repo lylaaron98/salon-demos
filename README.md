@@ -40,7 +40,7 @@ apps/
 packages/
   config/           Shared ESLint, Prettier and tsconfig presets
   tokens/           Design tokens (Style Dictionary): CSS, TS, Elementor, theme.json, Divi
-  ui/               Shared React components (coming soon)
+  ui/               Shared React components (CSS Modules on token variables)
 wordpress/          Themes, plugin and Playground blueprints (coming soon)
 ```
 
@@ -53,7 +53,8 @@ pnpm install        # install all workspace dependencies
 pnpm dev            # run the Next.js app at http://localhost:3000
 ```
 
-The token swatch page with a brand switcher lives at `/tokens`.
+The token swatch page with a brand switcher lives at `/tokens`, and the component showcase at
+`/components`.
 
 ## Commands
 
@@ -65,7 +66,7 @@ All commands run from the repo root and fan out through Turborepo.
 | `pnpm build`     | Production build of every package (Next.js included)       |
 | `pnpm lint`      | ESLint in every package, then a Prettier check of the repo |
 | `pnpm typecheck` | `tsc --noEmit` in every package                            |
-| `pnpm test`      | Unit tests (token WCAG AA contrast checks)                 |
+| `pnpm test`      | Unit tests (token contrast checks, UI helper functions)    |
 | `pnpm format`    | Format the whole repo with Prettier                        |
 
 Run a single package with a filter, for example `pnpm --filter web dev`.
