@@ -1,5 +1,5 @@
-import { closedMondays, lateWeekdays } from "../hours";
-import type { Brand } from "../types";
+import { closedMondays, lateWeekdays } from "../hours.ts";
+import type { Brand } from "../types.ts";
 
 // Fictional brand. Names, addresses and numbers are invented demo content.
 export const dewlab = {
@@ -12,6 +12,8 @@ export const dewlab = {
     "Dewlab Skin Studio is a fictional Singapore skin studio: hydrating facials, peels and LED, always after a skin analysis. No packages pushed. Portfolio demo.",
   primaryCta: "Book my first facial",
   teamNoun: "therapists",
+  schemaType: "BeautySalon",
+  priceRange: "$$",
   hero: {
     eyebrow: "Skin studio · Singapore",
     title: "Skin, studied.",
@@ -180,6 +182,8 @@ export const dewlab = {
       area: "Novena",
       address: "238 Dewpoint Road, #03-11",
       postalCode: "307238",
+      // Approximate neighbourhood centre (the street address is fictional).
+      geo: { latitude: 1.3204, longitude: 103.8438 },
       mrt: "2 min walk from Novena MRT (NS20)",
       hours: lateWeekdays,
       phone: "+65 6201 0000",
@@ -190,6 +194,8 @@ export const dewlab = {
       area: "Katong",
       address: "41 Porcelain Terrace, #01-02",
       postalCode: "428041",
+      // Approximate neighbourhood centre (the street address is fictional).
+      geo: { latitude: 1.3051, longitude: 103.905 },
       mrt: "6 min walk from Marine Parade MRT (TE26)",
       hours: closedMondays,
       phone: "+65 6202 0000",
@@ -200,6 +206,8 @@ export const dewlab = {
       area: "Bugis",
       address: "150 Blushwood Avenue, #02-18",
       postalCode: "188150",
+      // Approximate neighbourhood centre (the street address is fictional).
+      geo: { latitude: 1.3009, longitude: 103.8559 },
       mrt: "3 min walk from Bugis MRT (EW12 / DT14)",
       hours: lateWeekdays,
       phone: "+65 6203 0000",

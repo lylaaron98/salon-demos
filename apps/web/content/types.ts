@@ -38,6 +38,8 @@ export type Outlet = {
   /** Fictional street address with unit number. */
   address: string;
   postalCode: string;
+  /** Approximate coordinates (WGS 84) for maps and JSON-LD `geo`. */
+  geo: { latitude: number; longitude: number };
   mrt: string;
   hours: OpeningHours;
   phone: string;
@@ -77,6 +79,10 @@ export type Brand = {
   primaryCta: string;
   /** What the team is called on this brand: "stylists", "therapists", "scalp coaches". */
   teamNoun: string;
+  /** schema.org LocalBusiness subtype for the brand and each outlet. */
+  schemaType: "HairSalon" | "BeautySalon" | "HealthAndBeautyBusiness";
+  /** schema.org `priceRange`, e.g. "$$". */
+  priceRange: string;
   hero: {
     eyebrow: string;
     title: string;
