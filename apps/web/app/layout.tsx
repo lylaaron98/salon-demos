@@ -2,6 +2,8 @@ import "@salon-demos/tokens/tokens.css";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { ConsentDefaults, TagManager } from "./_components/Analytics";
+import { ConsentBanner } from "./_components/ConsentBanner";
 import { brandFontVariables, manrope } from "./fonts";
 import "./globals.css";
 
@@ -26,8 +28,20 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en-SG" className={`${manrope.variable} ${brandFontVariables}`}>
-      <body>{children}</body>
+    // The consent script sets data-consent on <html> before hydration.
+    <html
+      lang="en-SG"
+      className={`${manrope.variable} ${brandFontVariables}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <ConsentDefaults />
+      </head>
+      <body>
+        <ConsentBanner />
+        {children}
+      </body>
+      <TagManager />
     </html>
   );
 }

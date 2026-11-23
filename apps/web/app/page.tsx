@@ -84,7 +84,8 @@ export default function HomePage() {
         <p>
           Demo project. No bookings are made and no real business is represented.{" "}
           <Link href="/tokens">View the design tokens</Link> or the{" "}
-          <Link href="/components">component library</Link>.
+          <Link href="/components">component library</Link>.{" "}
+          <a href="#cookie-settings">Cookie settings</a>
         </p>
       </footer>
     </main>

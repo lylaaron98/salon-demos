@@ -72,6 +72,7 @@ export default async function BrandLayout({
         outlets={brand.outlets.map((o) => ({ name: o.area, phone: o.phone }))}
         hours={brand.footer.hours}
         group={{ label: group.name, href: "/" }}
+        legal={[{ label: "Cookie settings", href: "#cookie-settings" }]}
         sisterBrands={brands
           .filter((b) => b.id !== brand.id)
           .map((b) => ({ label: b.name, href: brandHref(b.id) }))}

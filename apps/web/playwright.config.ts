@@ -1,5 +1,6 @@
 import { existsSync } from "node:fs";
 import { defineConfig } from "@playwright/test";
+import { savedConsent } from "./e2e/helpers";
 
 /**
  * End-to-end tests for the booking flow. They run against a production build:
@@ -23,6 +24,8 @@ export default defineConfig({
   reporter: process.env.CI ? "github" : "list",
   use: {
     baseURL: `http://localhost:${PORT}`,
+    // A remembered cookie choice; consent.spec.ts starts from empty storage instead.
+    storageState: savedConsent(`http://localhost:${PORT}`),
     trace: "off",
     browserName: "chromium",
     launchOptions: { executablePath },
