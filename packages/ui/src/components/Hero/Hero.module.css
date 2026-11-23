@@ -1,0 +1,186 @@
+/* Hero: image-split (default) and image-full. */
+
+.hero {
+  position: relative;
+  display: grid;
+  max-width: var(--layout-max);
+  margin: 0 auto;
+}
+
+.media {
+  min-width: 0;
+}
+
+/* Art-directed ratio: 4:3 on mobile, 4:5 on desktop (split). */
+.placeholder {
+  --_ratio: 4 / 3;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--layout-gutter-mobile) var(--space-8);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-text-accent);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-5xl);
+  font-weight: var(--display-weight);
+  line-height: var(--line-height-5xl);
+  letter-spacing: var(--display-letter-spacing);
+  text-wrap: balance;
+}
+
+.lead {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+/* Full-width primary CTA on phones, inside the first viewport. */
+.actions > :first-child {
+  flex: 1 1 100%;
+}
+
+.actions > :nth-child(2) {
+  display: none;
+}
+
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin: 0;
+  padding: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  list-style: none;
+}
+
+.trustItem {
+  display: inline-flex;
+  gap: var(--space-1);
+  align-items: center;
+}
+
+.trustItem svg {
+  color: var(--color-text-accent);
+}
+
+/* image-full: text on a scrim over the image */
+
+.full {
+  isolation: isolate;
+  max-width: none;
+  color: var(--color-text-inverse);
+}
+
+.full .media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.full .placeholder {
+  --_ratio: auto;
+
+  height: 100%;
+}
+
+.full .media::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgb(var(--brand-ink-rgb) / 0.85) 0%,
+    rgb(var(--brand-ink-rgb) / 0.5) 60%,
+    rgb(var(--brand-ink-rgb) / 0.3) 100%
+  );
+  content: "";
+}
+
+.full .copy {
+  justify-content: flex-end;
+  min-height: min(80vh, 40rem);
+  padding-top: var(--space-24);
+}
+
+.full .eyebrow,
+.full .lead,
+.full .trust,
+.full .trustItem svg {
+  color: var(--color-text-inverse);
+}
+
+@media (min-width: 480px) {
+  .actions > :first-child {
+    flex: 0 0 auto;
+  }
+
+  .actions > :nth-child(2) {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .copy {
+    padding-inline: var(--layout-gutter-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--layout-grid-gap-desktop);
+    align-items: center;
+    padding: var(--space-12) var(--layout-gutter-desktop);
+  }
+
+  .split .media {
+    order: 2;
+  }
+
+  .split .placeholder {
+    --_ratio: 4 / 5;
+
+    border-radius: var(--radius-card);
+  }
+
+  .split .copy {
+    padding: 0;
+    gap: var(--space-5);
+  }
+
+  .full .copy {
+    max-width: var(--layout-max);
+    width: 100%;
+    margin: 0 auto;
+    padding-inline: var(--layout-gutter-desktop);
+  }
+
+  .full .copy > * {
+    max-width: 40rem;
+  }
+}

@@ -1,0 +1,206 @@
+/* Button. Token variables only. */
+
+.button {
+  --_bg: var(--color-action-bg);
+  --_bg-hover: var(--color-action-bg-hover);
+  --_bg-pressed: var(--color-action-bg-pressed);
+  --_fg: var(--color-action-text);
+  --_border: transparent;
+  --_ring: var(--focus-ring, var(--color-focus-ring));
+
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-min);
+  min-height: var(--button-height);
+  padding: 0 var(--space-6);
+  border: 1.5px solid var(--_border);
+  border-radius: var(--radius-button);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--font-family-body);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: var(--line-height-xs);
+  letter-spacing: var(--button-letter-spacing);
+  text-align: center;
+  text-decoration: none;
+  text-transform: var(--button-text-transform);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-instant) var(--ease-standard);
+}
+
+.button:hover {
+  background: var(--_bg-hover);
+}
+
+.button:active {
+  background: var(--_bg-pressed);
+  transform: translateY(1px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--_ring);
+  outline-offset: 2px;
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
+.button[data-loading] {
+  cursor: progress;
+  opacity: 1;
+}
+
+/* Variants */
+
+.secondary {
+  --_bg: transparent;
+  --_bg-hover: var(--color-bg-subtle);
+  --_bg-pressed: var(--color-bg-subtle);
+  --_fg: var(--color-action-secondary-text);
+  --_border: var(--color-action-secondary-border);
+}
+
+.ghost {
+  --_bg: transparent;
+  --_bg-hover: var(--color-bg-subtle);
+  --_bg-pressed: var(--color-bg-subtle);
+  --_fg: var(--color-action-secondary-text);
+
+  padding-inline: var(--space-3);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.whatsapp {
+  --_bg: var(--color-whatsapp-bg);
+  --_bg-hover: var(--color-whatsapp-bg);
+  --_bg-pressed: var(--color-whatsapp-bg);
+  --_fg: var(--color-whatsapp-text);
+}
+
+.whatsapp:hover {
+  box-shadow: inset 0 0 0 999px rgb(var(--brand-ink-rgb) / 0.08);
+}
+
+.call {
+  --_bg: var(--color-call-bg);
+  --_bg-hover: var(--color-call-bg);
+  --_bg-pressed: var(--color-call-bg);
+  --_fg: var(--color-call-text);
+}
+
+.call:hover {
+  box-shadow: inset 0 0 0 999px rgb(var(--brand-ink-rgb) / 0.2);
+}
+
+/* On dark surfaces */
+
+.onInverse {
+  --_ring: var(--color-focus-ring-inverse);
+}
+
+.onInverse.primary {
+  --_bg: var(--color-text-inverse);
+  --_bg-hover: var(--color-bg-subtle);
+  --_bg-pressed: var(--color-bg-subtle);
+  --_fg: var(--color-text-primary);
+}
+
+.onInverse.secondary,
+.onInverse.ghost {
+  --_bg: transparent;
+  --_bg-hover: rgb(var(--brand-ink-rgb) / 0.4);
+  --_bg-pressed: rgb(var(--brand-ink-rgb) / 0.4);
+  --_fg: var(--color-text-inverse);
+  --_border: var(--color-text-inverse);
+}
+
+.onInverse.ghost {
+  --_border: transparent;
+}
+
+/* Sizes */
+
+.sm {
+  min-height: var(--tap-min);
+  padding-inline: var(--space-4);
+  font-size: var(--font-size-sm);
+}
+
+.md {
+  min-height: var(--button-height);
+}
+
+.lg {
+  min-height: calc(var(--space-12) + var(--space-2));
+  padding-inline: var(--space-8);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.iconOnly {
+  width: var(--button-height);
+  padding: 0;
+}
+
+.iconOnly.sm {
+  width: var(--tap-min);
+}
+
+.label {
+  min-width: 0;
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--radius-pill);
+  animation: spin 0.8s linear infinite;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button:active {
+    transition: none;
+    transform: none;
+  }
+
+  .spinner {
+    animation-duration: 2.4s;
+  }
+}

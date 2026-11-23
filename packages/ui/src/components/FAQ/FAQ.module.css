@@ -1,0 +1,79 @@
+/* FAQ accordion. Rows are at least 56px; the plus turns into a cross in 240ms. */
+
+.faq {
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.item {
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: normal;
+}
+
+.trigger {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: calc(var(--space-12) + var(--space-2));
+  padding: var(--space-3) 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-primary);
+  font: inherit;
+  line-height: var(--line-height-sm);
+  text-align: left;
+  cursor: pointer;
+}
+
+.trigger:hover {
+  color: var(--color-text-accent);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: var(--space-8);
+  height: var(--space-8);
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-subtle);
+  color: var(--color-text-primary);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.trigger[aria-expanded="true"] .icon {
+  transform: rotate(45deg);
+}
+
+.panel {
+  padding: 0 var(--space-12) var(--space-4) 0;
+  color: var(--color-text-primary);
+}
+
+.panel p {
+  max-width: var(--layout-measure);
+  margin: 0;
+}
+
+.compact .trigger {
+  font-size: var(--font-size-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon {
+    transition: none;
+  }
+}

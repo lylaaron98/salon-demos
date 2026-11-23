@@ -1,0 +1,408 @@
+/* Header: utility bar + main bar (desktop), 60px bar + drawer (mobile). */
+
+.skip {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: var(--z-toast);
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-button);
+  background: var(--color-action-bg);
+  color: var(--color-action-text);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transform: translateY(calc(-100% - var(--space-4)));
+}
+
+.skip:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  transform: none;
+}
+
+/*
+ * Sticky with a negative offset equal to the utility bar, so the utility bar scrolls
+ * away and the main bar stays pinned. Heights are fixed, so there is no layout shift.
+ */
+.header {
+  --_utility-h: 0px;
+  --_bar-h: calc(var(--space-12) + var(--space-3));
+
+  position: sticky;
+  top: calc(-1 * var(--_utility-h));
+  z-index: var(--z-header);
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+  transition: box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.header[data-scrolled] {
+  box-shadow: var(--shadow-sm);
+}
+
+.utility {
+  display: none;
+  border-bottom: 1px solid var(--color-border-subtle);
+  font-size: var(--font-size-xs);
+}
+
+.utilityInner,
+.bar {
+  max-width: var(--layout-max);
+  margin: 0 auto;
+  padding-inline: var(--layout-gutter-mobile);
+}
+
+.utilityInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  height: var(--_utility-h);
+}
+
+.switcher,
+.switcherList,
+.utilityEnd {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.switcherList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.switcherList li + li::before {
+  margin-right: var(--space-1);
+  color: var(--color-text-muted);
+  content: "|";
+}
+
+.sep {
+  color: var(--color-text-muted);
+}
+
+.utilityLink {
+  display: inline-flex;
+  gap: var(--space-1);
+  align-items: center;
+  min-height: var(--tap-min);
+  padding-inline: var(--space-2);
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.utilityLink:hover {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+}
+
+.utilityLink[aria-current="page"] {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: var(--tap-min) 1fr var(--tap-min);
+  gap: var(--space-2);
+  align-items: center;
+  height: var(--_bar-h);
+}
+
+.logo {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--display-weight);
+  line-height: var(--line-height-xs);
+  letter-spacing: var(--display-letter-spacing);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logoDot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin-left: var(--space-1);
+  align-self: flex-end;
+  margin-bottom: 0.7em;
+  border-radius: var(--radius-pill);
+  background: var(--color-decor-accent);
+}
+
+.nav,
+.cta {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  padding-inline: var(--space-3);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+.navLink::after {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-1);
+  left: var(--space-3);
+  height: 2px;
+  background: var(--color-decor-accent);
+  content: "";
+  transform: scaleX(0);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.navLink:hover::after,
+.navLink[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.iconButton {
+  display: inline-grid;
+  place-items: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-button);
+  background: transparent;
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background: var(--color-bg-subtle);
+}
+
+.logo:focus-visible,
+.navLink:focus-visible,
+.utilityLink:focus-visible,
+.iconButton:focus-visible,
+.drawerLink:focus-visible,
+.drawerBrandLink:focus-visible,
+.drawerGroupLink:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Drawer (mobile) */
+
+.drawerRoot {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-drawer);
+  visibility: hidden;
+  transition: visibility 0s linear var(--duration-base);
+}
+
+.drawerRoot[data-open] {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: rgb(var(--brand-ink-rgb) / 0.4);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.drawer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: min(85vw, calc(var(--space-32) * 3 - var(--space-6)));
+  padding: var(--space-2) var(--space-4) calc(var(--space-6) + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(-100%);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.drawerRoot[data-open] .scrim {
+  opacity: 1;
+}
+
+.drawerRoot[data-open] .drawer {
+  transform: none;
+}
+
+.drawerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(var(--space-12) + var(--space-1));
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.drawerTitle {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-lg);
+  font-weight: var(--display-weight);
+}
+
+.drawerNav,
+.drawerBrandList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(var(--space-12) + var(--space-1));
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+.drawerLink[aria-current="page"] {
+  color: var(--color-text-accent);
+}
+
+.drawerActions {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.drawerBrands {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.drawerEyebrow {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+}
+
+.drawerGroupLink,
+.drawerBrandLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  color: var(--color-text-primary);
+}
+
+.drawerGroupLink {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.drawerBrandLink[aria-current="page"] {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Desktop */
+
+@media (min-width: 768px) {
+  .utilityInner,
+  .bar {
+    padding-inline: var(--layout-gutter-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    --_utility-h: var(--tap-min);
+    --_bar-h: calc(var(--space-16) + var(--space-2));
+  }
+
+  .utility {
+    display: block;
+  }
+
+  .utilityInner,
+  .bar {
+    padding-inline: var(--layout-gutter-desktop);
+  }
+
+  .bar {
+    grid-template-columns: auto 1fr auto;
+    gap: var(--space-6);
+  }
+
+  .logo {
+    justify-self: start;
+    font-size: var(--font-size-2xl);
+  }
+
+  .nav {
+    display: block;
+    justify-self: center;
+  }
+
+  .cta {
+    display: inline-flex;
+  }
+
+  .menuButton,
+  .phoneButton {
+    display: none;
+  }
+
+  .drawerRoot {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .scrim,
+  .drawer,
+  .navLink::after {
+    transition: none;
+  }
+}
