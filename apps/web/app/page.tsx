@@ -1,19 +1,18 @@
+import { ButtonLink, MediaPlaceholder } from "@salon-demos/ui";
 import Link from "next/link";
-import { brands, group } from "./brands";
+import { brandHref, brands, group } from "@/content";
 
+/** Group hub: introduces Orrin Collective and routes visitors to the three studios. */
 export default function HomePage() {
   return (
-    <main className="page">
+    <main id="main" className="page">
       <header className="masthead">
         <p className="wordmark">
           {group.name}
           <span className="wordmark-dot" aria-hidden="true" />
         </p>
         <h1>{group.tagline}</h1>
-        <p className="lede">
-          One membership, three specialist studios. This is a portfolio demo: every brand, name and
-          line of copy is fictional.
-        </p>
+        <p className="lede">{group.lead}</p>
       </header>
 
       <section aria-labelledby="studios-heading">
@@ -23,12 +22,47 @@ export default function HomePage() {
         <ul className="brand-list">
           {brands.map((brand) => (
             <li key={brand.id} className="brand-card" data-brand={brand.id}>
-              <p className="brand-category">{brand.category}</p>
-              <h3 className="brand-name">{brand.name}</h3>
-              <p className="brand-tagline">{brand.tagline}</p>
+              <MediaPlaceholder ratio="3 / 2" tone="inverse" />
+              <div className="brand-card-body">
+                <p className="brand-category">{brand.category}</p>
+                <h3 className="brand-name">
+                  <Link className="brand-link" href={brandHref(brand.id)}>
+                    {brand.name}
+                  </Link>
+                </h3>
+                <p className="brand-tagline">{brand.tagline}</p>
+                <p className="brand-meta">
+                  {brand.outlets.length} outlets · {brand.hero.trust[0]}
+                </p>
+                <span className="brand-more" aria-hidden="true">
+                  Visit {brand.shortName} →
+                </span>
+              </div>
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="membership" aria-labelledby="membership-heading">
+        <h2 id="membership-heading" className="section-heading">
+          One membership, three specialists
+        </h2>
+        <p className="lede">
+          Credit from an Orrin Collective membership works at every studio, with one booking account
+          and the same service standards. (Fictional, for this demo.)
+        </p>
+        <div className="actions">
+          {brands.map((brand) => (
+            <ButtonLink
+              key={brand.id}
+              href={brandHref(brand.id)}
+              variant="secondary"
+              data-brand={brand.id}
+            >
+              {brand.shortName}
+            </ButtonLink>
+          ))}
+        </div>
       </section>
 
       <footer className="footer">
