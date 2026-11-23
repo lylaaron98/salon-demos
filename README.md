@@ -155,19 +155,40 @@ All commands run from the repo root and fan out through Turborepo.
 
 Run a single package with a filter, for example `pnpm --filter web dev`.
 
-End-to-end tests (Playwright, desktop 1440×900 and mobile 390×844) run against a production build
-and are not part of CI yet:
+End-to-end tests (Playwright, desktop 1440×900 and mobile 390×844) run against a production
+build. They cover the booking flow, cookie consent, `contact_click` tracking and axe-core scans
+(`e2e/a11y.spec.ts`: the group hub, each brand home and booking step 1, plus the open cookie banner;
+any serious or critical violation fails):
 
 ```bash
 pnpm --filter web exec playwright install chromium   # once
 pnpm build && pnpm --filter web test:e2e
 ```
 
+Lighthouse CI (mobile preset, 3 runs per URL, median asserted) runs the group hub and the three
+brand homes against `next start`. Locally, point `CHROME_PATH` at a Chromium:
+
+```bash
+pnpm build && CHROME_PATH=/path/to/chrome pnpm --filter web lhci
+```
+
 ## Continuous integration
 
 `.github/workflows/ci.yml` runs on every pull request and on pushes to `main`. It installs with
-pnpm (store and Turborepo caches restored) and runs `lint`, `typecheck`, `test` and `build` as
-separate jobs, so each shows up as its own status check.
+pnpm (store and Turborepo caches restored) and runs each check as its own job:
+
+| Job          | What it does                                                                                           |
+| ------------ | ------------------------------------------------------------------------------------------------------ |
+| `lint`       | ESLint and the Prettier check                                                                          |
+| `typecheck`  | `tsc --noEmit` in every package                                                                        |
+| `test`       | Unit tests                                                                                             |
+| `build`      | Production build; uploads `apps/web/.next` (without its cache) as an artifact                          |
+| `e2e`        | Downloads the build, installs Chromium, runs Playwright and the axe checks at both viewports           |
+| `lighthouse` | Downloads the build and runs Lighthouse CI against `next start`, uploading to temporary public storage |
+
+`e2e` and `lighthouse` reuse the `build` artifact, so the app is built once per run. Lighthouse
+budgets (`apps/web/lighthouserc.cjs`, mobile): performance ≥ 0.9, accessibility ≥ 0.95, SEO ≥
+0.95, CLS < 0.1, LCP < 2.5 s, TBT < 200 ms; best practices ≥ 0.95 is a warning.
 
 ## Licence
 
