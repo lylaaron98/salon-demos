@@ -8,6 +8,7 @@ import { groupGraph } from "@/lib/seo/jsonld";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { SITE_URL } from "@/lib/site";
 import { JsonLd } from "./_components/JsonLd";
+import { LcpPhoto } from "./_components/LcpPhoto";
 
 export const metadata: Metadata = pageMetadata({
   title: `${group.name}: ${group.tagline} (demo)`,
@@ -40,16 +41,12 @@ export default function HomePage() {
           {brands.map((brand, index) => (
             <li key={brand.id} className="brand-card" data-brand={brand.id}>
               <MediaPlaceholder ratio="3 / 2" tone="inverse">
-                <Image
-                  src={photoSrc(photos[brand.id].hero)}
-                  alt=""
-                  fill
+                {index === 0 ? (
                   // The first card is above the fold on phones and is the LCP element there.
-                  preload={index === 0}
-                  fetchPriority={index === 0 ? "high" : undefined}
-                  quality={55}
-                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                />
+                  <LcpPhoto photo={photos[brand.id].hero} alt="" sizes={HUB_CARD_SIZES} />
+                ) : (
+                  <Image src={photoSrc(photos[brand.id].hero)} alt="" fill sizes={HUB_CARD_SIZES} />
+                )}
               </MediaPlaceholder>
               <div className="brand-card-body">
                 <p className="brand-category">{brand.category}</p>
@@ -104,3 +101,6 @@ export default function HomePage() {
     </main>
   );
 }
+
+/** Hub brand card widths: three columns, then two, then one. */
+const HUB_CARD_SIZES = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";

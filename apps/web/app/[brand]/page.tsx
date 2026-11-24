@@ -21,6 +21,7 @@ import { brandGraph } from "@/lib/seo/jsonld";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { SITE_URL } from "@/lib/site";
 import { JsonLd } from "../_components/JsonLd";
+import { LcpPhoto } from "../_components/LcpPhoto";
 import styles from "./brand.module.css";
 
 type Props = { params: Promise<{ brand: string }> };
@@ -102,14 +103,9 @@ export default async function BrandHomePage({ params }: Props) {
           secondaryCta={{ label: brand.hero.secondaryCta, href: `${home}#pricing` }}
           trust={brand.hero.trust}
           media={
-            <Image
-              src={photoSrc(media.hero)}
+            <LcpPhoto
+              photo={media.hero}
               alt={media.hero.alt}
-              fill
-              // preload alone adds the <link> but leaves the fetch at low priority.
-              preload
-              fetchPriority="high"
-              quality={55}
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
           }

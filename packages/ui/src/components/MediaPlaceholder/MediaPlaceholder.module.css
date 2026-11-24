@@ -75,6 +75,6 @@
   display: none;
 }
 
-.filled > img {
+.filled img {
   object-fit: cover;
 }
