@@ -24,6 +24,12 @@ One shared design-token source drives three builds:
 | Block theme site             | WordPress block theme (`theme.json` from tokens)     | Dewlab Skin Studio |
 | Divi child theme (code only) | Divi child theme CSS generated from the same tokens  | Dewlab Skin Studio |
 
+## Content editing
+
+The showcase's copy (services, team, FAQs, banners) is edited in [Keystatic](https://keystatic.com),
+a free Git-based CMS, at `/keystatic`. Every save is a commit, and the build validates the content
+before it goes live. See [docs/cms.md](docs/cms.md).
+
 ## Zero-cost stack
 
 Everything runs on free tiers: GitHub (public repo + Actions), Vercel Hobby for the Next.js

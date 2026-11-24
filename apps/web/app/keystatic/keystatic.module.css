@@ -1,0 +1,22 @@
+.notice {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-16) var(--space-6);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-body);
+  line-height: var(--line-height-md);
+}
+
+.notice h1 {
+  margin-bottom: var(--space-4);
+  font-family: var(--font-family-display);
+}
+
+.notice p + p {
+  margin-top: var(--space-4);
+}
+
+.notice a {
+  color: inherit;
+  text-decoration: underline;
+}
