@@ -106,7 +106,9 @@ export default async function BrandHomePage({ params }: Props) {
               src={media.hero.id}
               alt={media.hero.alt}
               fill
+              // preload alone adds the <link> but leaves the fetch at low priority.
               preload
+              fetchPriority="high"
               quality={55}
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
