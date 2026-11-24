@@ -107,7 +107,7 @@ export default async function BrandHomePage({ params }: Props) {
               alt={media.hero.alt}
               fill
               preload
-              quality={65}
+              quality={55}
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
           }

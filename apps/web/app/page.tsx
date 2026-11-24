@@ -37,13 +37,16 @@ export default function HomePage() {
           Our studios
         </h2>
         <ul className="brand-list">
-          {brands.map((brand) => (
+          {brands.map((brand, index) => (
             <li key={brand.id} className="brand-card" data-brand={brand.id}>
               <MediaPlaceholder ratio="3 / 2" tone="inverse">
                 <Image
                   src={photos[brand.id].hero.id}
                   alt=""
                   fill
+                  // The first card is above the fold on phones and is the LCP element there.
+                  preload={index === 0}
+                  quality={55}
                   sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                 />
               </MediaPlaceholder>
