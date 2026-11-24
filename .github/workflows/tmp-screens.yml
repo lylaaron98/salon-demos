@@ -1,0 +1,28 @@
+name: tmp-screens
+on:
+  push:
+    branches: [tmp/screens]
+permissions:
+  contents: read
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./.github/actions/setup
+      - run: pnpm turbo run build --filter=web
+      - working-directory: apps/web
+        run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm --filter web test:e2e screenshots --project=desktop
+        env:
+          SCREENSHOT_DIR: ${{ github.workspace }}/screenshots
+      - name: Dump downscaled screenshots
+        run: |
+          cd screenshots
+          for f in home-*.png; do
+            convert "$f" -resize 50% -quality 72 "${f%.png}.jpg"
+            echo "=====BEGIN ${f%.png}.jpg"
+            base64 -w0 "${f%.png}.jpg"; echo
+            echo "=====END"
+          done
