@@ -70,10 +70,10 @@ export const photos: Record<BrandId, BrandPhotos> = {
         href: "https://unsplash.com/photos/a-modern-hair-salon-interior-with-stylish-chairs-and-mirrors-_Fy7Kq0w6OI",
       },
       "tanjong-pagar": {
-        id: "photo-1600948836101-f9ffda59d250",
-        alt: "Black salon chairs facing round mirrors",
-        credit: "Greg Trowman",
-        href: "https://unsplash.com/photos/salon-chairs-with-mirrors-and-products-jsuWg7IXx1k",
+        id: "photo-1703792686930-9efa64a9c6c5",
+        alt: "Styling chairs, mirrors and warm lights in a salon",
+        credit: "Kawê Rodrigues",
+        href: "https://unsplash.com/photos/a-hair-salon-with-chairs-and-mirrors-and-lights-SUBpTBqFc6c",
       },
       "holland-village": {
         id: "photo-1633681926022-84c23e8cb2d6",
