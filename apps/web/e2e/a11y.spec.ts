@@ -55,6 +55,11 @@ test.describe("with the cookie banner open", () => {
     await expect(banner).toBeVisible();
     await scan(page, "consent banner");
     await banner.getByRole("button", { name: "Customise" }).click();
+    // Save choices replaces Customise in the same slot. It must render in its
+    // final primary colours at once, not transition from the secondary style.
+    const bg = (name: string) =>
+      banner.getByRole("button", { name }).evaluate((el) => getComputedStyle(el).backgroundColor);
+    expect(await bg("Save choices")).toBe(await bg("Accept all"));
     await scan(page, "consent customise panel");
   });
 });
