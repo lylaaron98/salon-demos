@@ -55,15 +55,12 @@ describe("site URL", () => {
     assert.equal(resolveSiteUrl({}), DEFAULT_SITE_URL);
   });
 
-  it("prefers SITE_URL, then NEXT_PUBLIC_SITE_URL, then Vercel's production domain", () => {
-    const env = {
-      SITE_URL: "https://a.test/",
-      NEXT_PUBLIC_SITE_URL: "https://b.test",
-      VERCEL_PROJECT_PRODUCTION_URL: "c.test",
-    };
+  it("prefers SITE_URL, then NEXT_PUBLIC_SITE_URL, then the production domain", () => {
+    const env = { SITE_URL: "https://a.test/", NEXT_PUBLIC_SITE_URL: "https://b.test" };
     assert.equal(resolveSiteUrl(env), "https://a.test");
     assert.equal(resolveSiteUrl({ ...env, SITE_URL: "" }), "https://b.test");
-    assert.equal(resolveSiteUrl({ VERCEL_PROJECT_PRODUCTION_URL: "c.test" }), "https://c.test");
+    // Vercel's auto-assigned domain must not win over the chosen one.
+    assert.equal(resolveSiteUrl({ VERCEL_PROJECT_PRODUCTION_URL: "c.test" }), DEFAULT_SITE_URL);
   });
 
   it("ignores values that are not absolute http(s) URLs", () => {

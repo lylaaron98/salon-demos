@@ -15,6 +15,26 @@ export const group = {
 
 const BRANDS: Record<BrandId, Brand> = { sable, dewlab, rootwell };
 
+// Cross-checks between CMS-edited content and structural data, so an edit that
+// breaks a link (a renamed service the offer points at, a stylist at an outlet
+// that doesn't exist) fails the build instead of shipping.
+for (const brand of Object.values(BRANDS)) {
+  const services = new Set(brand.services.map((s) => s.slug));
+  for (const slug of brand.offer?.services ?? []) {
+    if (!services.has(slug)) {
+      throw new Error(`${brand.id}: the offer points at service "${slug}", which no longer exists`);
+    }
+  }
+  const areas = new Set(brand.outlets.map((o) => o.area));
+  for (const member of brand.team) {
+    if (!areas.has(member.outlet)) {
+      throw new Error(
+        `${brand.id}: ${member.name} is at "${member.outlet}", which is not an outlet`,
+      );
+    }
+  }
+}
+
 /** Brands in display order (same order as the token build). */
 export const brands: readonly Brand[] = brandIds.map((id) => BRANDS[id]);
 
