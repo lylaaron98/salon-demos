@@ -1,5 +1,5 @@
-import { closedMondays, lateWeekdays } from "../hours";
-import type { Brand } from "../types";
+import { closedMondays, lateWeekdays } from "../hours.ts";
+import type { Brand } from "../types.ts";
 
 // Fictional brand. Names, addresses and numbers are invented demo content.
 export const sable = {
@@ -12,6 +12,8 @@ export const sable = {
     "Sable & Shear is a fictional hair atelier in Singapore: precision cuts, considered colour and balayage from senior stylists. Portfolio demo.",
   primaryCta: "Book a stylist",
   teamNoun: "stylists",
+  schemaType: "HairSalon",
+  priceRange: "$$$",
   hero: {
     eyebrow: "Hair atelier · Singapore",
     title: "Cut with intent.",
@@ -169,6 +171,8 @@ export const sable = {
       area: "Tiong Bahru",
       address: "18 Linen Arcade Walk, #01-12",
       postalCode: "160418",
+      // Approximate neighbourhood centre (the street address is fictional).
+      geo: { latitude: 1.2847, longitude: 103.827 },
       mrt: "4 min walk from Tiong Bahru MRT (EW17)",
       hours: lateWeekdays,
       phone: "+65 6101 0000",
@@ -179,6 +183,8 @@ export const sable = {
       area: "Tanjong Pagar",
       address: "72 Shearwater Street, #02-05",
       postalCode: "088472",
+      // Approximate neighbourhood centre (the street address is fictional).
+      geo: { latitude: 1.2765, longitude: 103.8458 },
       mrt: "3 min walk from Tanjong Pagar MRT (EW15)",
       hours: lateWeekdays,
       phone: "+65 6102 0000",
@@ -189,6 +195,8 @@ export const sable = {
       area: "Holland Village",
       address: "9 Brassfield Lane, #01-03",
       postalCode: "278909",
+      // Approximate neighbourhood centre (the street address is fictional).
+      geo: { latitude: 1.3112, longitude: 103.7958 },
       mrt: "5 min walk from Holland Village MRT (CC21)",
       hours: closedMondays,
       phone: "+65 6103 0000",
@@ -228,5 +236,11 @@ export const sable = {
   footer: {
     blurb: "A hair atelier for considered cuts and colour. A fictional demo brand.",
     hours: ["Mon–Fri 10 am–9 pm", "Sat 9 am–7 pm", "Sun 10 am–6 pm"],
+  },
+  offer: {
+    id: "first-visit",
+    label: "First-visit colour offer",
+    services: ["root-colour", "hand-painted-balayage"],
+    percentOff: 20,
   },
 } satisfies Brand;

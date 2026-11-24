@@ -15,17 +15,24 @@ import {
   type OpeningHours,
 } from "@salon-demos/ui";
 import type { Metadata } from "next";
+import { group } from "@/content";
+import { breadcrumbNode, graph } from "@/lib/seo/jsonld";
+import { GROUP_CARD_ALT, pageMetadata } from "@/lib/seo/metadata";
+import { SITE_URL } from "@/lib/site";
+import { JsonLd } from "../_components/JsonLd";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { BrandSwitcher } from "./brand-switcher";
 import styles from "./components.module.css";
 import { LoadingDemo } from "./loading-demo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Components",
   description:
     "Every shared UI component from @salon-demos/ui, rendered under a brand switcher. All copy is fictional demo content.",
-};
+  path: "/components",
+  image: { path: "/opengraph-image", alt: GROUP_CARD_ALT },
+});
 
 // Sample content. Every name, number and address is fictional.
 const PHONE = "+65 6100 0000";
@@ -82,6 +89,14 @@ function Section({
 export default function ComponentsPage() {
   return (
     <main id="showcase" className={styles.page}>
+      <JsonLd
+        data={graph([
+          breadcrumbNode(SITE_URL, [
+            { name: group.name, path: "/" },
+            { name: "Components", path: "/components" },
+          ]),
+        ])}
+      />
       <header className={styles.intro}>
         <p className={styles.back}>
           <Link href="/">Back to Orrin Collective</Link> · <Link href="/tokens">Design tokens</Link>
