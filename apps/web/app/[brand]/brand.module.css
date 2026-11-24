@@ -169,30 +169,6 @@
   margin-top: var(--space-8);
 }
 
-/* Booking placeholder page */
-
-.bookPage {
-  padding-block: var(--layout-section-y);
-}
-
-.bookTitle {
-  font-size: var(--font-size-4xl);
-  line-height: var(--line-height-4xl);
-}
-
-.bookLead {
-  max-width: var(--layout-measure);
-  margin: var(--space-4) 0 0;
-  font-size: var(--font-size-lg);
-}
-
-.bookActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-8);
-}
-
 @media (min-width: 768px) {
   .container,
   .containerNarrow {

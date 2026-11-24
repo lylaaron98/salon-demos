@@ -1,11 +1,26 @@
 import { ButtonLink, MediaPlaceholder } from "@salon-demos/ui";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { brandHref, brands, group } from "@/content";
+import { groupGraph } from "@/lib/seo/jsonld";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { SITE_URL } from "@/lib/site";
+import { JsonLd } from "./_components/JsonLd";
+
+export const metadata: Metadata = pageMetadata({
+  title: `${group.name}: ${group.tagline} (demo)`,
+  absoluteTitle: true,
+  socialTitle: group.name,
+  description:
+    "Orrin Collective is a fictional Singapore beauty group with three specialist studios: Sable & Shear (hair), Dewlab (skin) and Rootwell (scalp). Portfolio demo.",
+  path: "/",
+});
 
 /** Group hub: introduces Orrin Collective and routes visitors to the three studios. */
 export default function HomePage() {
   return (
     <main id="main" className="page">
+      <JsonLd data={groupGraph(SITE_URL, group, brands)} />
       <header className="masthead">
         <p className="wordmark">
           {group.name}
@@ -69,7 +84,8 @@ export default function HomePage() {
         <p>
           Demo project. No bookings are made and no real business is represented.{" "}
           <Link href="/tokens">View the design tokens</Link> or the{" "}
-          <Link href="/components">component library</Link>.
+          <Link href="/components">component library</Link>.{" "}
+          <a href="#cookie-settings">Cookie settings</a>
         </p>
       </footer>
     </main>

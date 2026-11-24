@@ -4,6 +4,9 @@ node_modules/
 .turbo/
 dist/
 next-env.d.ts
+.lighthouseci/
+playwright-report/
+test-results/
 wordpress/composer.lock
 
 # WordPress block markup: the editor validates exact HTML, so Prettier must not reflow it.
