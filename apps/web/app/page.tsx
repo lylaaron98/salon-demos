@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { brandHref, brands, group } from "@/content";
-import { photos } from "@/content/media";
+import { photoSrc, photos } from "@/content/media";
 import { groupGraph } from "@/lib/seo/jsonld";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { SITE_URL } from "@/lib/site";
@@ -41,7 +41,7 @@ export default function HomePage() {
             <li key={brand.id} className="brand-card" data-brand={brand.id}>
               <MediaPlaceholder ratio="3 / 2" tone="inverse">
                 <Image
-                  src={photos[brand.id].hero.id}
+                  src={photoSrc(photos[brand.id].hero)}
                   alt=""
                   fill
                   // The first card is above the fold on phones and is the LCP element there.

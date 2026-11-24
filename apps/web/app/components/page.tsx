@@ -17,7 +17,7 @@ import {
 import type { Metadata } from "next";
 import Image from "next/image";
 import { group } from "@/content";
-import { type Photo, photos } from "@/content/media";
+import { type Photo, photoSrc, photos } from "@/content/media";
 import { breadcrumbNode, graph } from "@/lib/seo/jsonld";
 import { GROUP_CARD_ALT, pageMetadata } from "@/lib/seo/metadata";
 import { SITE_URL } from "@/lib/site";
@@ -559,5 +559,5 @@ const CARD = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw";
 /** Sample photo for a showcase slot. Decorative: each card's heading names it. */
 function showcase(photo: Photo | undefined, sizes: string, hero = false): ReactNode {
   if (!photo) return undefined;
-  return <Image src={photo.id} alt={hero ? photo.alt : ""} fill sizes={sizes} />;
+  return <Image src={photoSrc(photo)} alt={hero ? photo.alt : ""} fill sizes={sizes} />;
 }

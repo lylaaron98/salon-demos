@@ -16,7 +16,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { bookHref, brandHref, getBrand, group, whatsappText } from "@/content";
-import { type Photo, photos } from "@/content/media";
+import { type Photo, photoSrc, photos } from "@/content/media";
 import { brandGraph } from "@/lib/seo/jsonld";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { SITE_URL } from "@/lib/site";
@@ -103,7 +103,7 @@ export default async function BrandHomePage({ params }: Props) {
           trust={brand.hero.trust}
           media={
             <Image
-              src={media.hero.id}
+              src={photoSrc(media.hero)}
               alt={media.hero.alt}
               fill
               // preload alone adds the <link> but leaves the fetch at low priority.
@@ -278,5 +278,5 @@ const THREE_UP_SIZES = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw
  * card keeps its gradient placeholder.
  */
 function photoOf(photo: Photo | undefined, sizes: string): ReactNode {
-  return photo ? <Image src={photo.id} alt="" fill sizes={sizes} /> : undefined;
+  return photo ? <Image src={photoSrc(photo)} alt="" fill sizes={sizes} /> : undefined;
 }

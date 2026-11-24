@@ -1,7 +1,6 @@
 import "@salon-demos/tokens/tokens.css";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { preconnect } from "react-dom";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { ConsentDefaults, TagManager } from "./_components/Analytics";
 import { ConsentBanner } from "./_components/ConsentBanner";
@@ -29,9 +28,6 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  // Photos come from Unsplash's CDN (lib/unsplash-loader.ts). Opening the connection
-  // early takes DNS and TLS off the hero image's critical path (LCP).
-  preconnect("https://images.unsplash.com");
   return (
     // The consent script sets data-consent on <html> before hydration.
     <html

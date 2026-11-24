@@ -2,7 +2,7 @@ import type { BrandId } from "@salon-demos/tokens";
 
 /**
  * Photography for each brand: free Unsplash photos (https://unsplash.com/license),
- * hotlinked from Unsplash's CDN through `lib/unsplash-loader.ts`. Credits are shown
+ * fetched from Unsplash's CDN by the next/image optimiser (next.config.ts). Credits are shown
  * on /credits even though the licence does not require them.
  *
  * Keys match the slugs in the brand content, so a new service or team member
@@ -13,7 +13,7 @@ import type { BrandId } from "@salon-demos/tokens";
  */
 
 export type Photo = {
-  /** Unsplash photo id, passed to next/image as `src`. */
+  /** Unsplash photo id, e.g. "photo-1634449571010-02389ed0f9b0". */
   id: string;
   alt: string;
   credit: string;
@@ -272,3 +272,11 @@ export const allPhotos: Photo[] = Object.values(photos).flatMap((brand) => [
   ...Object.values(brand.outlets),
   ...Object.values(brand.team),
 ]);
+
+/**
+ * Source URL for next/image. Capped at 2400px wide so the optimiser downloads a
+ * reasonable original; it then resizes to each `sizes` breakpoint itself.
+ */
+export function photoSrc(photo: Photo): string {
+  return `https://images.unsplash.com/${photo.id}?w=2400&q=80&fm=jpg&fit=crop`;
+}

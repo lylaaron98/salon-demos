@@ -1,26 +1,13 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { brands } from "../content/index.ts";
-import { allPhotos, photos } from "../content/media.ts";
-import unsplashLoader from "../lib/unsplash-loader.ts";
+import { allPhotos, photoSrc, photos } from "../content/media.ts";
 
-describe("unsplash loader", () => {
-  it("builds a resized, auto-format Unsplash URL", () => {
-    const url = new URL(unsplashLoader({ src: "photo-123-abc", width: 640, quality: 60 }));
+describe("photoSrc", () => {
+  it("points next/image at a capped Unsplash original", () => {
+    const url = new URL(photoSrc({ id: "photo-123-abc", alt: "x", credit: "y", href: "z" }));
     assert.equal(url.origin + url.pathname, "https://images.unsplash.com/photo-123-abc");
-    assert.equal(url.searchParams.get("w"), "640");
-    assert.equal(url.searchParams.get("q"), "60");
-    assert.equal(url.searchParams.get("auto"), "format");
-    assert.equal(url.searchParams.get("fit"), "crop");
-  });
-
-  it("defaults quality and passes local or absolute paths through", () => {
-    assert.match(unsplashLoader({ src: "photo-1", width: 64 }), /[?&]q=70(&|$)/);
-    assert.equal(unsplashLoader({ src: "/icon.svg", width: 64 }), "/icon.svg");
-    assert.equal(
-      unsplashLoader({ src: "https://x.test/a.jpg", width: 64 }),
-      "https://x.test/a.jpg",
-    );
+    assert.equal(url.searchParams.get("w"), "2400");
   });
 });
 
