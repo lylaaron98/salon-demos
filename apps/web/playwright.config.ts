@@ -3,12 +3,13 @@ import { defineConfig } from "@playwright/test";
 import { savedConsent } from "./e2e/helpers";
 
 /**
- * End-to-end tests for the booking flow. They run against a production build:
- * `pnpm --filter web build && pnpm --filter web test:e2e`.
+ * End-to-end tests (booking flow, consent, analytics, axe) against a production
+ * build: `pnpm build && pnpm --filter web test:e2e`.
  *
- * Browser: Playwright's own Chromium when installed (`pnpm exec playwright install
- * chromium`). Set PLAYWRIGHT_CHROMIUM_EXECUTABLE to use another binary; a
- * preinstalled one at /opt/pw-browsers/chromium is picked up automatically.
+ * Browser: Playwright's own Chromium when installed (CI runs
+ * `pnpm exec playwright install --with-deps chromium`). Set
+ * PLAYWRIGHT_CHROMIUM_EXECUTABLE to use another binary; a preinstalled one at
+ * /opt/pw-browsers/chromium is picked up automatically for local runs.
  */
 const PORT = Number(process.env.E2E_PORT ?? 3210);
 const PREINSTALLED = "/opt/pw-browsers/chromium";
@@ -21,7 +22,8 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  reporter: process.env.CI ? "github" : "list",
+  // CI: annotations in the PR, plus an HTML report uploaded when a test fails.
+  reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : "list",
   use: {
     baseURL: `http://localhost:${PORT}`,
     // A remembered cookie choice; consent.spec.ts starts from empty storage instead.
