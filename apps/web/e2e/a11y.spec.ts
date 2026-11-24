@@ -55,6 +55,15 @@ test.describe("with the cookie banner open", () => {
     await expect(banner).toBeVisible();
     await scan(page, "consent banner");
     await banner.getByRole("button", { name: "Customise" }).click();
+    // Save choices replaces Customise in the same slot. It must be a new element
+    // that renders in its final colours at once: if React reused the Customise
+    // button, a colour transition would be running and axe would read a
+    // half-faded background. (Its colour can be the hover shade on touch
+    // emulation, where the pointer stays over the slot, so compare animations.)
+    const running = await banner
+      .getByRole("button", { name: "Save choices" })
+      .evaluate((el) => el.getAnimations().length);
+    expect(running).toBe(0);
     await scan(page, "consent customise panel");
   });
 });

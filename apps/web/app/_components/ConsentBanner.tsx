@@ -149,12 +149,16 @@ export function ConsentBanner() {
         ) : null}
 
         <div className={styles.actions}>
+          {/* Distinct keys so React mounts a new button instead of restyling the
+              old one: reusing it ran the 150 ms colour transition from the
+              secondary to the primary style, briefly failing contrast. */}
           {view === "customise" ? (
-            <Button size="sm" onClick={() => close(draft)}>
+            <Button key="save" size="sm" onClick={() => close(draft)}>
               Save choices
             </Button>
           ) : (
             <Button
+              key="customise"
               size="sm"
               variant="secondary"
               onClick={() => {
