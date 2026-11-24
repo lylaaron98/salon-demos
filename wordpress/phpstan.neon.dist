@@ -7,6 +7,7 @@ parameters:
 	paths:
 		- themes/sable-hello-child
 		- themes/dewlab-block
+		- themes/dewlab-divi-child
 		- plugins/salon-booking-enquiry
 	excludePaths:
 		analyse:

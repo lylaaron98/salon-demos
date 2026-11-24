@@ -23,7 +23,7 @@ const BRAND = "dewlab";
  * Faces from design brief 2.5 (DM Serif Display 400; DM Sans 400, 500, 700): about 67 KB in
  * total, two preloaded (body regular and the display face used by the hero H1).
  */
-const FONTS = [
+export const DEWLAB_FONTS = [
   {
     pkg: "@fontsource/dm-sans",
     file: "dm-sans-latin-400-normal.woff2",
@@ -76,7 +76,7 @@ export function mergeThemeJson(target, source) {
 }
 
 /** Insert the metric-matched fallback right after the web font: `"DM Sans", "DM Sans Fallback", ...`. */
-const withFallback = (stack, family) => {
+export const withFallback = (stack, family) => {
   const quoted = `"${family}"`;
   if (!stack.startsWith(quoted))
     throw new Error(`Token font stack "${stack}" does not start with ${quoted}`);
@@ -91,7 +91,7 @@ const withFallback = (stack, family) => {
 export async function buildDewlabBlock(theme) {
   const out = join(theme, "assets", "build");
   await rm(out, { recursive: true, force: true });
-  await copyFonts(FONTS, join(out, "fonts"));
+  await copyFonts(DEWLAB_FONTS, join(out, "fonts"));
 
   // 1. tokens.css: Dewlab's semantic variables as literals (no primitives, no other brands), so the
   //    theme and the salon-booking-enquiry plugin can read --color-action-bg, --radius-button ...
@@ -125,7 +125,7 @@ export async function buildDewlabBlock(theme) {
   merged.description = `${NOTICE} Sources: packages/tokens/dist/theme.json + theme.base.json.`;
 
   merged.settings.typography.fontFamilies = tokens.settings.typography.fontFamilies.map((entry) => {
-    const faces = FONTS.filter((font) => font.slug === entry.slug);
+    const faces = DEWLAB_FONTS.filter((font) => font.slug === entry.slug);
     if (faces.length === 0) throw new Error(`No self-hosted face for font family "${entry.slug}"`);
     const family = faces[0].family;
     return {
@@ -152,7 +152,7 @@ export async function buildDewlabBlock(theme) {
   await mkdir(out, { recursive: true });
   await writeFile(
     join(out, "manifest.json"),
-    `${JSON.stringify({ notice: NOTICE, tokens: "tokens.css", preload: preloads(FONTS) }, null, 2)}\n`,
+    `${JSON.stringify({ notice: NOTICE, tokens: "tokens.css", preload: preloads(DEWLAB_FONTS) }, null, 2)}\n`,
   );
   return out;
 }
