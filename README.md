@@ -87,8 +87,8 @@ build time with `next/og`, coloured from that brand's tokens (`/opengraph-image`
 `/[brand]/opengraph-image`). `app/sitemap.ts` lists the indexable pages and `app/robots.ts` blocks
 crawlers on Vercel preview deployments. Booking steps and confirmations are `noindex`.
 
-Canonical URLs come from `SITE_URL` (or `NEXT_PUBLIC_SITE_URL`), then Vercel's production domain,
-then `https://salon-demos.vercel.app`.
+Canonical URLs come from `SITE_URL` (or `NEXT_PUBLIC_SITE_URL`), then the production domain
+`https://orrin-collective.vercel.app`.
 
 JSON-LD (`apps/web/lib/seo/jsonld.ts`, typed with `schema-dts`, one `@graph` per page):
 
