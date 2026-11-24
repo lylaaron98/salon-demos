@@ -150,10 +150,10 @@ export const photos: Record<BrandId, BrandPhotos> = {
         href: "https://unsplash.com/photos/modern-white-reception-area-with-curved-lines-and-glass-partitions-ECBg5FQkBXI",
       },
       katong: {
-        id: "photo-1741316039916-b09da8daa02c",
-        alt: "A welcoming reception desk in a modern spa",
-        credit: "Meg von Haartman",
-        href: "https://unsplash.com/photos/the-modern-spas-reception-desk-is-welcoming-DbOMZfXT6kw",
+        id: "photo-1745327883290-1e9c6447b938",
+        alt: "A clean, calm treatment room ready for a session",
+        credit: "Jakub Klucký",
+        href: "https://unsplash.com/photos/a-massage-room-is-clean-and-ready-for-a-session-oAvwAKFiU7Q",
       },
       bugis: {
         id: "photo-1693578538512-fc66f318c833",
