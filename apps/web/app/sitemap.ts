@@ -18,5 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { url: absoluteUrl("/tokens"), lastModified, changeFrequency: "monthly", priority: 0.3 },
     { url: absoluteUrl("/components"), lastModified, changeFrequency: "monthly", priority: 0.3 },
+    { url: absoluteUrl("/credits"), lastModified, changeFrequency: "yearly", priority: 0.1 },
   ];
 }

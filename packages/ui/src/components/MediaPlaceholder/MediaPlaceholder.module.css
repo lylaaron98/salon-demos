@@ -68,3 +68,13 @@
     var(--color-bg-subtle) 70%
   );
 }
+
+/* With a real image: drop the decoration and let the image cover the frame. */
+.filled::before,
+.filled::after {
+  display: none;
+}
+
+.filled img {
+  object-fit: cover;
+}

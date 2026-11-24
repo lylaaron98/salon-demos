@@ -17,7 +17,7 @@ export type HeroProps = {
   secondaryCta?: { label: string; href: string };
   /** Trust row, e.g. ["4.9 ★ from 1,200+ reviews (demo)", "No hard-selling"]. */
   trust?: string[];
-  /** Image slot. Defaults to a token-coloured placeholder at the right ratio. */
+  /** Hero photo, e.g. a `next/image` with `fill` and `preload` (it is usually the LCP element). Rendered in the art-directed frame; without it the frame shows a placeholder. */
   media?: ReactNode;
   mediaTone?: MediaTone;
   /** id on the primary CTA, so the sticky book bar can watch it. */
@@ -45,7 +45,9 @@ export function Hero({
       aria-labelledby={`${ctaId}-title`}
     >
       <div className={styles.media}>
-        {media ?? <MediaPlaceholder tone={mediaTone} className={styles.placeholder} />}
+        <MediaPlaceholder tone={mediaTone} className={styles.placeholder}>
+          {media}
+        </MediaPlaceholder>
       </div>
       <div className={styles.copy}>
         {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}

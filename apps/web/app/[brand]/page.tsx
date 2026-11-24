@@ -12,13 +12,16 @@ import {
 } from "@salon-demos/ui";
 import { whatsappHref } from "@salon-demos/ui/lib";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { bookHref, brandHref, getBrand, group, whatsappText } from "@/content";
+import { type Photo, photoSrc, photos } from "@/content/media";
 import { brandGraph } from "@/lib/seo/jsonld";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { SITE_URL } from "@/lib/site";
 import { JsonLd } from "../_components/JsonLd";
+import { LcpPhoto } from "../_components/LcpPhoto";
 import styles from "./brand.module.css";
 
 type Props = { params: Promise<{ brand: string }> };
@@ -86,6 +89,7 @@ export default async function BrandHomePage({ params }: Props) {
 
   const home = brandHref(brand.id);
   const book = bookHref(brand.id);
+  const media = photos[brand.id];
 
   return (
     <>
@@ -98,6 +102,13 @@ export default async function BrandHomePage({ params }: Props) {
           primaryCta={{ label: brand.primaryCta, href: book }}
           secondaryCta={{ label: brand.hero.secondaryCta, href: `${home}#pricing` }}
           trust={brand.hero.trust}
+          media={
+            <LcpPhoto
+              photo={media.hero}
+              alt={media.hero.alt}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+          }
         />
 
         <div id="offer" className={styles.anchor}>
@@ -126,6 +137,7 @@ export default async function BrandHomePage({ params }: Props) {
                   href={`${home}#pricing`}
                   bookHref={bookHref(brand.id, { service: service.slug })}
                   badge={service.badge}
+                  image={photoOf(media.services[service.slug], SERVICE_SIZES)}
                 />
               </li>
             ))}
@@ -153,7 +165,7 @@ export default async function BrandHomePage({ params }: Props) {
         <Section
           id="team"
           title="Meet the team"
-          intro="Portraits are placeholders and every name is fictional (demo team)."
+          intro="Every name is fictional (demo team). Photos are free stock images."
         >
           <ul className={styles.teamRail} aria-label={`Our ${brand.teamNoun}`}>
             {brand.team.map((member) => (
@@ -165,6 +177,7 @@ export default async function BrandHomePage({ params }: Props) {
                   languages={member.languages}
                   outlet={member.outlet}
                   bookHref={bookHref(brand.id, { stylist: member.slug })}
+                  image={photoOf(media.team[member.slug], TEAM_SIZES)}
                 />
               </li>
             ))}
@@ -200,6 +213,7 @@ export default async function BrandHomePage({ params }: Props) {
                   whatsapp={outlet.whatsapp}
                   whatsappText={whatsappText(brand, outlet.area)}
                   bookHref={bookHref(brand.id, { outlet: outlet.slug })}
+                  image={photoOf(media.outlets[outlet.slug], THREE_UP_SIZES)}
                 />
               </li>
             ))}
@@ -247,4 +261,18 @@ export default async function BrandHomePage({ params }: Props) {
       </div>
     </>
   );
+}
+
+/** Grid widths, so the browser picks the smallest file that stays sharp. */
+const SERVICE_SIZES = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw";
+const TEAM_SIZES = "(min-width: 1024px) 25vw, 70vw";
+const THREE_UP_SIZES = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw";
+
+/**
+ * A card photo below the fold: lazy-loaded, with empty alt because the card's
+ * heading already names the service, person or outlet. No photo, no image: the
+ * card keeps its gradient placeholder.
+ */
+function photoOf(photo: Photo | undefined, sizes: string): ReactNode {
+  return photo ? <Image src={photoSrc(photo)} alt="" fill sizes={sizes} /> : undefined;
 }

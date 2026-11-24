@@ -1,11 +1,14 @@
 import { ButtonLink, MediaPlaceholder } from "@salon-demos/ui";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { brandHref, brands, group } from "@/content";
+import { photoSrc, photos } from "@/content/media";
 import { groupGraph } from "@/lib/seo/jsonld";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { SITE_URL } from "@/lib/site";
 import { JsonLd } from "./_components/JsonLd";
+import { LcpPhoto } from "./_components/LcpPhoto";
 
 export const metadata: Metadata = pageMetadata({
   title: `${group.name}: ${group.tagline} (demo)`,
@@ -35,9 +38,16 @@ export default function HomePage() {
           Our studios
         </h2>
         <ul className="brand-list">
-          {brands.map((brand) => (
+          {brands.map((brand, index) => (
             <li key={brand.id} className="brand-card" data-brand={brand.id}>
-              <MediaPlaceholder ratio="3 / 2" tone="inverse" />
+              <MediaPlaceholder ratio="3 / 2" tone="inverse">
+                {index === 0 ? (
+                  // The first card is above the fold on phones and is the LCP element there.
+                  <LcpPhoto photo={photos[brand.id].hero} alt="" sizes={HUB_CARD_SIZES} />
+                ) : (
+                  <Image src={photoSrc(photos[brand.id].hero)} alt="" fill sizes={HUB_CARD_SIZES} />
+                )}
+              </MediaPlaceholder>
               <div className="brand-card-body">
                 <p className="brand-category">{brand.category}</p>
                 <h3 className="brand-name">
@@ -85,9 +95,12 @@ export default function HomePage() {
           Demo project. No bookings are made and no real business is represented.{" "}
           <Link href="/tokens">View the design tokens</Link> or the{" "}
           <Link href="/components">component library</Link>.{" "}
-          <a href="#cookie-settings">Cookie settings</a>
+          <Link href="/credits">Photo credits</Link>. <a href="#cookie-settings">Cookie settings</a>
         </p>
       </footer>
     </main>
   );
 }
+
+/** Hub brand card widths: three columns, then two, then one. */
+const HUB_CARD_SIZES = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";

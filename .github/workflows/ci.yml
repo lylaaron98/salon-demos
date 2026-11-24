@@ -99,6 +99,18 @@ jobs:
 
       - name: Playwright e2e + axe (desktop and mobile)
         run: pnpm --filter web test:e2e
+        env:
+          # Also captures desktop and mobile screenshots for the PR (screenshots.spec.ts).
+          SCREENSHOT_DIR: ${{ github.workspace }}/screenshots
+
+      - name: Upload screenshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenshots
+          if-no-files-found: ignore
+          retention-days: 14
 
       - name: Upload Playwright report
         if: ${{ failure() }}
