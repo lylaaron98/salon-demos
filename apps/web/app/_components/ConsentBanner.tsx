@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@salon-demos/ui";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import {
   ACCEPT_ALL,
@@ -36,6 +37,8 @@ export function ConsentBanner() {
   const panelHeadingRef = useRef<HTMLParagraphElement>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
   const titleId = useId();
+  // The CMS admin sets no tracking cookies of its own and needs the whole screen.
+  const inCms = usePathname()?.startsWith("/keystatic") ?? false;
 
   const reopen = useCallback(() => {
     returnFocusRef.current =
@@ -87,6 +90,8 @@ export function ConsentBanner() {
     const saved = readConsent();
     if (open && saved) close(saved);
   };
+
+  if (inCms) return null;
 
   return (
     <section

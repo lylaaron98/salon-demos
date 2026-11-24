@@ -14,6 +14,7 @@ const PAGES = [
   { name: "Sable & Shear booking step 1", path: "/sable/book" },
   { name: "Dewlab booking step 1", path: "/dewlab/book" },
   { name: "Rootwell booking step 1", path: "/rootwell/book" },
+  { name: "CMS not-connected notice", path: "/keystatic" },
 ];
 
 const TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"];
