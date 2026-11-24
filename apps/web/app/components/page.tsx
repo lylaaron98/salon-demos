@@ -15,7 +15,9 @@ import {
   type OpeningHours,
 } from "@salon-demos/ui";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { group } from "@/content";
+import { type Photo, photos } from "@/content/media";
 import { breadcrumbNode, graph } from "@/lib/seo/jsonld";
 import { GROUP_CARD_ALT, pageMetadata } from "@/lib/seo/metadata";
 import { SITE_URL } from "@/lib/site";
@@ -183,6 +185,7 @@ export default function ComponentsPage() {
               secondaryCta={{ label: "See prices", href: "#pricing" }}
               trust={["4.9 ★ from 1,200+ reviews (demo)", "No hard-selling", "S$ fixed pricing"]}
               ctaId="showcase-hero-cta"
+              media={showcase(photos.sable.hero, "(min-width: 1024px) 50vw, 100vw", true)}
             />
           </div>
           <div className={styles.frame}>
@@ -195,6 +198,7 @@ export default function ComponentsPage() {
               secondaryCta={{ label: "How it works", href: "#faq" }}
               trust={["Limited to the first 200 sign-ups this month"]}
               ctaId="showcase-hero-full-cta"
+              media={showcase(photos.dewlab.hero, "100vw", true)}
             />
           </div>
         </Section>
@@ -213,6 +217,7 @@ export default function ComponentsPage() {
                 priceFrom={88}
                 href="#services"
                 bookHref="#buttons"
+                image={showcase(photos.sable.services["precision-cut"], CARD)}
               />
             </li>
             <li>
@@ -223,6 +228,7 @@ export default function ComponentsPage() {
                 priceFrom={268}
                 href="#services"
                 variant="vertical"
+                image={showcase(photos.sable.services["hand-painted-balayage"], CARD)}
               />
             </li>
             <li>
@@ -234,6 +240,7 @@ export default function ComponentsPage() {
                 href="#services"
                 variant="featured"
                 badge="Most booked"
+                image={showcase(photos.sable.services["root-colour"], CARD)}
               />
             </li>
             <li>
@@ -244,6 +251,7 @@ export default function ComponentsPage() {
                 priceFrom={0}
                 href="#services"
                 variant="horizontal"
+                image={showcase(photos.rootwell.services["scalp-check"], CARD)}
               />
             </li>
           </ul>
@@ -395,6 +403,7 @@ export default function ComponentsPage() {
                 languages={["English", "中文"]}
                 outlet="Tiong Bahru"
                 bookHref="#buttons"
+                image={showcase(photos.sable.team["elena-tan"], CARD)}
               />
             </li>
             <li>
@@ -405,12 +414,23 @@ export default function ComponentsPage() {
                 languages={["English", "Bahasa Melayu"]}
                 outlet="Tanjong Pagar"
                 bookHref="#buttons"
+                image={showcase(photos.sable.team["farah-ismail"], CARD)}
               />
             </li>
           </ul>
           <div className={styles.row}>
-            <StaffCard variant="compact" name="Priya Nair" role="Senior therapist" />
-            <StaffCard variant="compact" name="Daniel Ong" role="Scalp coach" />
+            <StaffCard
+              variant="compact"
+              name="Priya Nair"
+              role="Senior therapist"
+              image={showcase(photos.dewlab.team["priya-nair"], "64px")}
+            />
+            <StaffCard
+              variant="compact"
+              name="Daniel Ong"
+              role="Scalp coach"
+              image={showcase(photos.rootwell.team["daniel-ong"], "64px")}
+            />
           </div>
         </Section>
 
@@ -431,6 +451,7 @@ export default function ComponentsPage() {
                 whatsapp="+65 8101 0000"
                 whatsappText="Hi Sable & Shear Tiong Bahru, I'd like to book. Sent from website"
                 bookHref="#buttons"
+                image={showcase(photos.sable.outlets["tiong-bahru"], CARD)}
               />
             </li>
             <li>
@@ -531,4 +552,12 @@ export default function ComponentsPage() {
       </BrandSwitcher>
     </main>
   );
+}
+
+const CARD = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw";
+
+/** Sample photo for a showcase slot. Decorative: each card's heading names it. */
+function showcase(photo: Photo | undefined, sizes: string, hero = false): ReactNode {
+  if (!photo) return undefined;
+  return <Image src={photo.id} alt={hero ? photo.alt : ""} fill sizes={sizes} />;
 }

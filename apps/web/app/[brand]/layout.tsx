@@ -72,11 +72,14 @@ export default async function BrandLayout({
         outlets={brand.outlets.map((o) => ({ name: o.area, phone: o.phone }))}
         hours={brand.footer.hours}
         group={{ label: group.name, href: "/" }}
-        legal={[{ label: "Cookie settings", href: "#cookie-settings" }]}
+        legal={[
+          { label: "Cookie settings", href: "#cookie-settings" },
+          { label: "Photo credits", href: "/credits" },
+        ]}
         sisterBrands={brands
           .filter((b) => b.id !== brand.id)
           .map((b) => ({ label: b.name, href: brandHref(b.id) }))}
-        copyright="© 2026 Orrin Collective (fictional demo). No real business is represented and no bookings are made. Images are placeholders."
+        copyright="© 2026 Orrin Collective (fictional demo). No real business is represented and no bookings are made. Photos from Unsplash."
       />
     </div>
   );

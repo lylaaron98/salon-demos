@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Icon } from "../../icons/Icon";
 import { cx } from "../../lib/cx";
 import { directionsHref, telHref, whatsappHref } from "../../lib/format";
@@ -21,9 +22,11 @@ export type OutletCardProps = {
   /** Prefilled WhatsApp message. */
   whatsappText?: string;
   bookHref: string;
-  /** `list`: 3:2 image and weekly hours. `compact`: text and actions only. */
+  /** `list`: 3:2 image and weekly hours. `compact`: no weekly hours, and an image only if passed. */
   variant?: "list" | "compact";
   headingLevel?: 3 | 4;
+  /** Outlet photo, e.g. a `next/image` with `fill`. The `list` variant always has the 3:2 frame; `compact` shows it only when given. */
+  image?: ReactNode;
 };
 
 export function OutletCard({
@@ -38,13 +41,18 @@ export function OutletCard({
   bookHref,
   variant = "list",
   headingLevel = 3,
+  image,
 }: OutletCardProps) {
   const Heading = `h${headingLevel}` as const;
   const fullAddress = `${address}, Singapore ${postalCode}`;
 
   return (
     <article className={cx(styles.card, styles[variant])}>
-      {variant === "list" ? <MediaPlaceholder ratio="3 / 2" tone="subtle" /> : null}
+      {variant === "list" || image ? (
+        <MediaPlaceholder ratio="3 / 2" tone="subtle">
+          {image}
+        </MediaPlaceholder>
+      ) : null}
       <div className={styles.body}>
         <Heading className={styles.name}>{name}</Heading>
         <OpenStatus hours={hours} />
@@ -58,7 +66,7 @@ export function OutletCard({
             {mrt}
           </p>
         ) : null}
-        {variant === "list" ? (
+        {variant === "list" || image ? (
           <dl className={styles.hours}>
             {summariseHours(hours).map((row) => (
               <div key={row.days}>

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Icon } from "../../icons/Icon";
 import { cx } from "../../lib/cx";
 import { formatPrice } from "../../lib/format";
@@ -24,6 +25,8 @@ export type ServiceCardProps = {
   bookHref?: string;
   headingLevel?: 2 | 3 | 4;
   mediaTone?: MediaTone;
+  /** Photo for the media slot, e.g. a `next/image` with `fill` and empty alt (the title names it). */
+  image?: ReactNode;
 };
 
 export function ServiceCard({
@@ -38,6 +41,7 @@ export function ServiceCard({
   bookHref,
   headingLevel = 3,
   mediaTone = "subtle",
+  image,
 }: ServiceCardProps) {
   const Heading = `h${headingLevel}` as const;
   const price = priceFrom === 0 ? "Free" : formatPrice(priceFrom, { from: priceVaries });
@@ -48,7 +52,9 @@ export function ServiceCard({
         <MediaPlaceholder
           tone={variant === "featured" ? "decor" : mediaTone}
           className={styles.image}
-        />
+        >
+          {image}
+        </MediaPlaceholder>
       </div>
       <div className={styles.body}>
         {badge ? <span className={styles.badge}>{badge}</span> : null}

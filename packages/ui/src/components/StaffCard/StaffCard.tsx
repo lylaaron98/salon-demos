@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { cx } from "../../lib/cx";
 import { ButtonLink } from "../Button/Button";
 import { MediaPlaceholder, type MediaTone } from "../MediaPlaceholder/MediaPlaceholder";
@@ -19,9 +20,11 @@ export type StaffCardProps = {
   variant?: "profile" | "compact";
   headingLevel?: 3 | 4;
   mediaTone?: MediaTone;
+  /** Portrait photo, e.g. a `next/image` with `fill` and empty alt (the name is the heading). */
+  image?: ReactNode;
 };
 
-/** Team member card. Portraits are placeholders and the team is labelled as demo content. */
+/** Team member card. The team is labelled as demo content. */
 export function StaffCard({
   name,
   role,
@@ -33,6 +36,7 @@ export function StaffCard({
   variant = "profile",
   headingLevel = 3,
   mediaTone = "decor",
+  image,
 }: StaffCardProps) {
   const Heading = `h${headingLevel}` as const;
   const firstName = name.split(" ")[0] ?? name;
@@ -41,7 +45,9 @@ export function StaffCard({
     return (
       <div className={cx(styles.card, styles.compact)}>
         <div className={styles.avatar}>
-          <MediaPlaceholder ratio="1" tone={mediaTone} />
+          <MediaPlaceholder ratio="1" tone={mediaTone}>
+            {image}
+          </MediaPlaceholder>
         </div>
         <div>
           <Heading className={styles.compactName}>{name}</Heading>
@@ -54,7 +60,9 @@ export function StaffCard({
   return (
     <article className={cx(styles.card, styles.profile)}>
       <div className={styles.portrait}>
-        <MediaPlaceholder ratio="4 / 5" tone={mediaTone} className={styles.portraitImage} />
+        <MediaPlaceholder ratio="4 / 5" tone={mediaTone} className={styles.portraitImage}>
+          {image}
+        </MediaPlaceholder>
         <span className={styles.demo}>Demo team</span>
       </div>
       <div className={styles.body}>

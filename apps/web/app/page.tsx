@@ -1,7 +1,9 @@
 import { ButtonLink, MediaPlaceholder } from "@salon-demos/ui";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { brandHref, brands, group } from "@/content";
+import { photos } from "@/content/media";
 import { groupGraph } from "@/lib/seo/jsonld";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { SITE_URL } from "@/lib/site";
@@ -37,7 +39,14 @@ export default function HomePage() {
         <ul className="brand-list">
           {brands.map((brand) => (
             <li key={brand.id} className="brand-card" data-brand={brand.id}>
-              <MediaPlaceholder ratio="3 / 2" tone="inverse" />
+              <MediaPlaceholder ratio="3 / 2" tone="inverse">
+                <Image
+                  src={photos[brand.id].hero.id}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                />
+              </MediaPlaceholder>
               <div className="brand-card-body">
                 <p className="brand-category">{brand.category}</p>
                 <h3 className="brand-name">
@@ -85,7 +94,7 @@ export default function HomePage() {
           Demo project. No bookings are made and no real business is represented.{" "}
           <Link href="/tokens">View the design tokens</Link> or the{" "}
           <Link href="/components">component library</Link>.{" "}
-          <a href="#cookie-settings">Cookie settings</a>
+          <Link href="/credits">Photo credits</Link>. <a href="#cookie-settings">Cookie settings</a>
         </p>
       </footer>
     </main>
