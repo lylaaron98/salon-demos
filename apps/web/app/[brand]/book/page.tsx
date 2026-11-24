@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { getBrand, type Brand } from "@/content";
 import type { AnalyticsContext } from "@/lib/analytics";
+import { BRAND_CARD_ALT, pageMetadata } from "@/lib/seo/metadata";
 import {
   bookingDates,
   dateParts,
@@ -62,11 +63,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const brand = getBrand((await params).brand);
   if (!brand) return {};
-  return {
+  // Every step and selection is a query-string variant of one thin page: keep it out of the index.
+  return pageMetadata({
     title: "Book",
     description: `Book an appointment at ${brand.name} (fictional demo, no real bookings).`,
-    robots: { index: false },
-  };
+    path: `/${brand.id}/book`,
+    noindex: true,
+    image: { path: `/${brand.id}/opengraph-image`, alt: BRAND_CARD_ALT },
+  });
 }
 
 const LEADS: Record<string, string> = {

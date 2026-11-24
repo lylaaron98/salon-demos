@@ -14,7 +14,11 @@ import { whatsappHref } from "@salon-demos/ui/lib";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
-import { bookHref, brandHref, getBrand, whatsappText } from "@/content";
+import { bookHref, brandHref, getBrand, group, whatsappText } from "@/content";
+import { brandGraph } from "@/lib/seo/jsonld";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { SITE_URL } from "@/lib/site";
+import { JsonLd } from "../_components/JsonLd";
 import styles from "./brand.module.css";
 
 type Props = { params: Promise<{ brand: string }> };
@@ -23,17 +27,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const brand = getBrand((await params).brand);
   if (!brand) return {};
   const title = `${brand.name}: ${brand.tagline}`;
-  return {
-    title: { absolute: `${title} | Orrin Collective (demo)` },
+  return pageMetadata({
+    title: `${title} | ${group.name} (demo)`,
+    absoluteTitle: true,
+    socialTitle: title,
     description: brand.description,
-    openGraph: {
-      title,
-      description: brand.description,
-      siteName: "Orrin Collective (demo)",
-      locale: "en_SG",
-      type: "website",
-    },
-  };
+    path: brandHref(brand.id),
+  });
 }
 
 function Section({
@@ -90,6 +90,7 @@ export default async function BrandHomePage({ params }: Props) {
   return (
     <>
       <main id="main" tabIndex={-1} className={styles.main}>
+        <JsonLd data={brandGraph(SITE_URL, group, brand)} />
         <Hero
           eyebrow={brand.hero.eyebrow}
           title={brand.hero.title}

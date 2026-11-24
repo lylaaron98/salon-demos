@@ -73,6 +73,28 @@ names from the design brief and no personal data.
 Brand content lives in typed data files under `apps/web/content/brands/`. The `[brand]` layout sets
 `data-brand` on its wrapper, so every token variable inside resolves to that brand's theme.
 
+### SEO
+
+Every page sets its title, description, canonical URL, Open Graph and Twitter card through the
+Next.js Metadata API (`apps/web/lib/seo/metadata.ts`). Social cards are generated per brand at
+build time with `next/og`, coloured from that brand's tokens (`/opengraph-image`,
+`/[brand]/opengraph-image`). `app/sitemap.ts` lists the indexable pages and `app/robots.ts` blocks
+crawlers on Vercel preview deployments. Booking steps and confirmations are `noindex`.
+
+Canonical URLs come from `SITE_URL` (or `NEXT_PUBLIC_SITE_URL`), then Vercel's production domain,
+then `https://salon-demos.vercel.app`.
+
+JSON-LD (`apps/web/lib/seo/jsonld.ts`, typed with `schema-dts`, one `@graph` per page):
+
+| Page          | Nodes                                                                                                                                                                                    |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`           | `Organization` (the group, `subOrganization` per brand), `WebSite`                                                                                                                       |
+| `/[brand]`    | `HairSalon`, `BeautySalon` or `HealthAndBeautyBusiness` with each outlet as a `location` (address, `geo`, opening hours, `priceRange`); services `ItemList`; `FAQPage`; `BreadcrumbList` |
+| Utility pages | `BreadcrumbList`                                                                                                                                                                         |
+
+No ratings, reviews or `sameAs` links are marked up: the brands are fictional. Unit tests in
+`apps/web/test/seo.test.ts` check the shape of every brand's graph.
+
 ## Commands
 
 All commands run from the repo root and fan out through Turborepo.

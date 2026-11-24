@@ -1,10 +1,10 @@
 import { brandIds, type BrandId } from "@salon-demos/tokens";
-import { dewlab } from "./brands/dewlab";
-import { rootwell } from "./brands/rootwell";
-import { sable } from "./brands/sable";
-import type { Brand } from "./types";
+import { dewlab } from "./brands/dewlab.ts";
+import { rootwell } from "./brands/rootwell.ts";
+import { sable } from "./brands/sable.ts";
+import type { Brand } from "./types.ts";
 
-export type { Brand, BookingOffer, Outlet, Service, TeamMember, Testimonial } from "./types";
+export type { Brand, BookingOffer, Outlet, Service, TeamMember, Testimonial } from "./types.ts";
 
 /** The fictional umbrella group. */
 export const group = {
