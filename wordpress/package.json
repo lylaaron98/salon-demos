@@ -7,7 +7,8 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-theme-assets.mjs",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "package": "node scripts/package-zips.mjs"
   },
   "devDependencies": {
     "@capsizecss/core": "4.1.3",

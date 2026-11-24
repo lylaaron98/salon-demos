@@ -25,7 +25,8 @@ edit `packages/tokens` for any colour, size or spacing value, then rebuild. The 
 merge where the base wins and arrays are replaced; font families keep the token stack and gain
 the metric-matched fallback (`"DM Sans", "DM Sans Fallback", system-ui, ...`).
 
-Without a build the theme activates but is unstyled, so deploy the built folder.
+Without a build the theme activates but is unstyled, so deploy the built folder or the release zip
+(`dewlab-block.zip` on the rolling `wp-latest` GitHub release).
 
 ## Structure
 
@@ -69,7 +70,8 @@ Without the plugin, the form block renders nothing and the theme hides the unreg
    site brand to _Dewlab_, the business type to _BeautySalon_ and replace the FAQ lines.
 3. **Pages > Add New**: pick _Dewlab home page_ from the starter patterns, set the template to
    _Landing page (no title, full width)_ and publish. Then **Settings > Reading**: _A static
-   page_, front page = that page.
+   page_, front page = that page. The [Playground blueprint](../../playground/) does all of this
+   (`setup/dewlab-block.php`).
 4. Site title "Dewlab Skin Studio" (shown by the header and used by the footer pattern).
 
 ## Performance

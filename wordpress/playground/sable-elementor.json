@@ -1,0 +1,75 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Sable & Shear: Elementor (free) demo",
+    "description": "Fictional hair atelier on Hello Elementor with a token-generated child theme and kit, free Elementor and the salon-booking-enquiry plugin's Elementor widget. Portfolio demo; all brands and data are fictional.",
+    "author": "lylaaron98",
+    "categories": ["Themes", "Demo"]
+  },
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "login": true,
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "wordpress.org/plugins",
+        "slug": "elementor"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "wordpress.org/themes",
+        "slug": "hello-elementor"
+      },
+      "options": {
+        "activate": false
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://github.com/lylaaron98/salon-demos/releases/download/wp-latest/salon-booking-enquiry.zip",
+        "caption": "Installing salon-booking-enquiry"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "url",
+        "url": "https://github.com/lylaaron98/salon-demos/releases/download/wp-latest/sable-hello-child.zip",
+        "caption": "Installing the Sable & Shear child theme"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/tmp/sable-elementor-setup.php",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/lylaaron98/salon-demos/main/wordpress/playground/setup/sable-elementor.php",
+        "caption": "Downloading demo content"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; wp_set_current_user( 1 ); require '/tmp/sable-elementor-setup.php';",
+      "progress": {
+        "caption": "Creating demo pages"
+      }
+    }
+  ]
+}
