@@ -38,6 +38,8 @@ export type Outlet = {
   /** Fictional street address with unit number. */
   address: string;
   postalCode: string;
+  /** Approximate coordinates (WGS 84) for maps and JSON-LD `geo`. */
+  geo: { latitude: number; longitude: number };
   mrt: string;
   hours: OpeningHours;
   phone: string;
@@ -49,6 +51,19 @@ export type Testimonial = {
   name: string;
   service: string;
   rating: number;
+};
+
+/** First-visit offer applied in the booking flow when the URL carries `offer=<id>`. */
+export type BookingOffer = {
+  id: string;
+  /** Short label for the summary, e.g. "First-visit trial". */
+  label: string;
+  /** Service slugs the offer applies to. */
+  services: string[];
+  /** Fixed offer price in S$ (GST inclusive). */
+  price?: number;
+  /** Or a percentage off the listed price. */
+  percentOff?: number;
 };
 
 export type Brand = {
@@ -64,6 +79,10 @@ export type Brand = {
   primaryCta: string;
   /** What the team is called on this brand: "stylists", "therapists", "scalp coaches". */
   teamNoun: string;
+  /** schema.org LocalBusiness subtype for the brand and each outlet. */
+  schemaType: "HairSalon" | "BeautySalon" | "HealthAndBeautyBusiness";
+  /** schema.org `priceRange`, e.g. "$$". */
+  priceRange: string;
   hero: {
     eyebrow: string;
     title: string;
@@ -82,4 +101,6 @@ export type Brand = {
   faqs: FAQItem[];
   closing: { title: string; body: string };
   footer: { blurb: string; hours: string[] };
+  /** Optional first-visit offer the promo banner links into the booking flow. */
+  offer?: BookingOffer;
 };

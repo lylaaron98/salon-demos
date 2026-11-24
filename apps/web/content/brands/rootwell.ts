@@ -1,5 +1,5 @@
-import { everyDay, lateWeekdays } from "../hours";
-import type { Brand } from "../types";
+import { everyDay, lateWeekdays } from "../hours.ts";
+import type { Brand } from "../types.ts";
 
 // Fictional brand. Names, addresses and numbers are invented demo content.
 export const rootwell = {
@@ -12,6 +12,8 @@ export const rootwell = {
     "Rootwell is a fictional Singapore scalp-care studio: free scalp analysis, head spa and hair-loss programmes for men and women. Portfolio demo.",
   primaryCta: "Book a free scalp check",
   teamNoun: "scalp coaches",
+  schemaType: "HealthAndBeautyBusiness",
+  priceRange: "$$",
   hero: {
     eyebrow: "Scalp care · Singapore",
     title: "Healthy hair starts at the root.",
@@ -177,6 +179,8 @@ export const rootwell = {
       area: "Bishan",
       address: "512 Eucalyptus Close, #01-27",
       postalCode: "570512",
+      // Approximate neighbourhood centre (the street address is fictional).
+      geo: { latitude: 1.3508, longitude: 103.8485 },
       mrt: "4 min walk from Bishan MRT (NS17 / CC15)",
       hours: lateWeekdays,
       phone: "+65 6301 0000",
@@ -187,6 +191,8 @@ export const rootwell = {
       area: "Tampines",
       address: "8 Ochre Grove, #02-14",
       postalCode: "529808",
+      // Approximate neighbourhood centre (the street address is fictional).
+      geo: { latitude: 1.354, longitude: 103.9437 },
       mrt: "5 min walk from Tampines MRT (EW2 / DT32)",
       hours: everyDay,
       phone: "+65 6302 0000",
@@ -225,5 +231,11 @@ export const rootwell = {
   footer: {
     blurb: "Scalp care and head spa, coached calmly. A fictional demo brand.",
     hours: ["Mon–Fri 10 am–9 pm", "Sat–Sun 9 am–7 pm", "Tampines open daily to 10 pm"],
+  },
+  offer: {
+    id: "first-visit",
+    label: "Scalp reset trial",
+    services: ["head-spa"],
+    price: 38,
   },
 } satisfies Brand;
