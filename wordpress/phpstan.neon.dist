@@ -1,0 +1,18 @@
+includes:
+	- vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+	level: 6
+	phpVersion: 80100
+	paths:
+		- themes/sable-hello-child
+		- plugins/salon-booking-enquiry
+	excludePaths:
+		analyse:
+			- */vendor/*
+			- */node_modules/*
+	scanFiles:
+		- stubs/elementor.php
+	bootstrapFiles:
+		- stubs/constants.php
+	treatPhpDocTypesAsCertain: false

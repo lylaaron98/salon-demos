@@ -1,0 +1,738 @@
+# Copyright (C) 2026 Aaron Lee
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Salon Booking Enquiry 1.0.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: salon-booking-enquiry\n"
+
+#. translators: %d: number of fields with errors.
+#: src/Enquiry/EnquiryService.php:71
+#, php-format
+msgid "%d field needs attention."
+msgid_plural "%d fields need attention."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of fields with errors.
+#: src/Frontend/Assets.php:93
+#, php-format
+msgid "%d fields need attention."
+msgstr ""
+
+#. translators: %d: minutes.
+#: src/Frontend/FormRenderer.php:208
+#, php-format
+msgid "%d min"
+msgstr ""
+
+#: src/Frontend/Assets.php:91
+msgid "1 field needs attention."
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:246
+msgid "Action colour"
+msgstr ""
+
+#: src/Frontend/Assets.php:89
+msgid "Afternoon"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:70
+msgid "All enquiries"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:101
+msgid "Also on exit intent"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:269
+msgid "Anything we should know? (optional)"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:197 assets/js/block-editor.js:117
+msgid "Ask for a date and time"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:207 assets/js/block-editor.js:124
+msgid "Ask for email (optional field)"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:307
+msgid "Back"
+msgstr ""
+
+#: src/Data/Catalogue.php:153
+msgid "Balayage"
+msgstr ""
+
+#: src/Settings.php:66
+msgid "Book a stylist"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:122 assets/js/block-editor.js:66
+msgid "Brand"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:89
+msgid "Brand on this site"
+msgstr ""
+
+#: src/Data/Catalogue.php:154
+msgid "Bridal"
+msgstr ""
+
+#: src/Data/Catalogue.php:154
+msgid "Bridal hair trial"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:91
+msgid "Business type"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:98
+msgid "Button label"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:99
+msgid "Button link"
+msgstr ""
+
+#: src/Settings.php:58
+msgid "Can I change my appointment? | Yes, free of charge up to 24 hours before. Reply to your confirmation or WhatsApp us."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:95
+msgid "Change it to show a new promo to visitors who dismissed the old one."
+msgstr ""
+
+#: src/Enquiry/Validator.php:68 src/Frontend/Assets.php:86
+msgid "Choose a time to continue."
+msgstr ""
+
+#: src/Data/Catalogue.php:152 src/Data/Catalogue.php:153
+msgid "Colour"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:230
+msgid "Colours"
+msgstr ""
+
+#: src/Data/Catalogue.php:157 src/Data/Catalogue.php:158
+msgid "Consultation"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:308
+msgid "Continue"
+msgstr ""
+
+#: src/Data/Catalogue.php:151
+msgid "Cut and finish"
+msgstr ""
+
+#: src/Data/Catalogue.php:117
+msgid "Cut with intent."
+msgstr ""
+
+#: src/Data/Catalogue.php:151
+msgid "Cuts"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:123
+msgid "Date and time"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:100
+msgid "Delay (seconds)"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:105
+msgid "Delete enquiries on uninstall"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:101
+msgid "Desktop: when the pointer leaves the top of the window."
+msgstr ""
+
+#. translators: %s: suggested email address.
+#: src/Frontend/Assets.php:98
+#, php-format
+msgid "Did you mean %s?"
+msgstr ""
+
+#: src/Promo/PromoModal.php:85
+msgid "Dismiss offer"
+msgstr ""
+
+#: src/Settings.php:56
+msgid "Do I need to book ahead? | Yes, we work by appointment. Same-day slots open up often, so WhatsApp us if you cannot see one."
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:237
+msgid "Email"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:261
+msgid "Email (optional)"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:67 src/PostType/EnquiryPostType.php:69
+msgid "Enquiries"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:181
+msgid "Enquiries are stored under Enquiries in the admin menu. This host cannot send email, so check there (or connect a webhook to the salon_booking_enquiry_stored action)."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:103
+msgid "Enquiries per visitor"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:68 src/PostType/EnquiryPostType.php:71
+msgid "Enquiry"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:224
+msgid "Enquiry details"
+msgstr ""
+
+#: src/Enquiry/Validator.php:82 src/Frontend/Assets.php:103
+msgid "Enter an 8-digit Singapore mobile number, e.g. 9123 4567."
+msgstr ""
+
+#: src/Enquiry/Validator.php:87 src/Frontend/Assets.php:105
+msgid "Enter an email like name@example.com."
+msgstr ""
+
+#: src/Frontend/Assets.php:90
+msgid "Evening"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:77
+msgid "FAQ"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:93
+msgid "FAQPage on front page"
+msgstr ""
+
+#: src/Data/Catalogue.php:155 src/Data/Catalogue.php:156
+msgid "Facials"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:244 src/PostType/EnquiryPostType.php:120 src/PostType/EnquiryPostType.php:235
+msgid "First name"
+msgstr ""
+
+#: src/Settings.php:64
+msgid "First visit? S$10 off your cut"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:262
+msgid "For your receipt and reminders."
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:160 assets/js/block-editor.js:94
+msgid "Form"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:218 assets/js/block-editor.js:131
+msgid "Form ID (analytics)"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:388
+msgid "Free"
+msgstr ""
+
+#: src/Data/Catalogue.php:152
+msgid "Full colour"
+msgstr ""
+
+#: src/Data/Catalogue.php:159
+msgid "Head spa"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:96 src/Elementor/EnquiryFormWidget.php:168 assets/js/block-editor.js:96
+msgid "Heading"
+msgstr ""
+
+#: src/Data/Catalogue.php:133
+msgid "Healthy hair starts at the root."
+msgstr ""
+
+#. translators: 1: brand, 2: outlet, 3: reference.
+#: src/Enquiry/EnquiryService.php:196
+#, php-format
+msgid "Hi %1$s %2$s, about my enquiry %3$s. (sent from website)"
+msgstr ""
+
+#: src/Settings.php:57
+msgid "How do I pay? | You pay at the outlet after your appointment. Prices include 9% GST."
+msgstr ""
+
+#: src/Data/Catalogue.php:155
+msgid "Hydra-Glow Signature Facial"
+msgstr ""
+
+#. translators: %s: privacy policy link.
+#: src/Frontend/FormRenderer.php:282
+#, php-format
+msgid "I agree to Orrin Collective contacting me about this enquiry, in line with the %s."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:286
+msgid "I agree to Orrin Collective contacting me about this enquiry, in line with the privacy policy."
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:178 assets/js/block-editor.js:103
+msgid "Intro"
+msgstr ""
+
+#: src/Data/Catalogue.php:156
+msgid "LED calming facial"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:133
+msgid "Leave empty to list every outlet of the brand. Outlets from another brand are ignored."
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:146
+msgid "Leave empty to list every service of the brand."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:299
+msgid "Leave this field empty"
+msgstr ""
+
+#: src/Frontend/Assets.php:84
+msgid "Loading times…"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:90
+msgid "LocalBusiness per outlet on the front page and on pages with the enquiry form."
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:125 src/PostType/EnquiryPostType.php:243
+msgid "Marketing opt-in"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:256
+msgid "Message"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:121 src/PostType/EnquiryPostType.php:236
+msgid "Mobile"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:250
+msgid "Mobile number"
+msgstr ""
+
+#: src/Frontend/Assets.php:88
+msgid "Morning"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:170 src/PostType/EnquiryPostType.php:250
+msgid "No"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:74
+msgid "No enquiries in the bin."
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:73
+msgid "No enquiries yet."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:341 src/Frontend/Assets.php:87 src/PostType/EnquiryPostType.php:167
+msgid "No preference"
+msgstr ""
+
+#: src/Promo/PromoModal.php:92
+msgid "No thanks"
+msgstr ""
+
+#: src/Frontend/Assets.php:85
+msgid "No times left on this day. Try another date, or WhatsApp us and we will find one."
+msgstr ""
+
+#: assets/js/block-editor.js:33
+msgid "None ticked = all."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:220
+msgid "Not sure yet"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:208
+msgid "Off keeps the form to four fields (design brief 4.11)."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:92
+msgid "One per line: Question | Answer. Shown by [salon_faq] and printed as FAQPage JSON-LD on the same page."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:93
+msgid "Only tick this if the front page shows the same questions."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:231
+msgid "Optional. We will confirm the exact time with you."
+msgstr ""
+
+#: src/Elementor/Integration.php:44
+msgid "Orrin Collective"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:118 src/PostType/EnquiryPostType.php:122 src/PostType/EnquiryPostType.php:238
+msgid "Outlet"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:132 assets/js/block-editor.js:74
+msgid "Outlets"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:242
+msgid "PDPA consent at"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:102
+msgid "Per visitor, stored in their browser. 0 = every visit."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:104
+msgid "Per window (minutes)"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:230
+msgid "Pick a date and time"
+msgstr ""
+
+#: src/Enquiry/Validator.php:101 src/Frontend/Assets.php:106
+msgid "Please agree so we can contact you about your enquiry."
+msgstr ""
+
+#: src/Rest/AvailabilityController.php:108 src/Enquiry/Validator.php:65
+msgid "Please choose a date from the list."
+msgstr ""
+
+#: src/Rest/AvailabilityController.php:90 src/Enquiry/Validator.php:58
+msgid "Please choose a service from the list."
+msgstr ""
+
+#: src/Enquiry/Validator.php:45
+msgid "Please choose a studio."
+msgstr ""
+
+#: src/Rest/AvailabilityController.php:87 src/Enquiry/Validator.php:51 src/Frontend/Assets.php:101
+msgid "Please choose an outlet."
+msgstr ""
+
+#: src/Enquiry/Validator.php:73 src/Frontend/Assets.php:102
+msgid "Please enter your first name."
+msgstr ""
+
+#. translators: %d: maximum characters.
+#: src/Enquiry/Validator.php:94
+#, php-format
+msgid "Please keep your message under %d characters."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:313
+msgid "Prefer to chat?"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:240
+msgid "Preferred date"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:335
+msgid "Preferred date (optional)"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:124
+msgid "Preferred slot"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:241
+msgid "Preferred time"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:339
+msgid "Preferred time (optional)"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:223
+msgid "Prices include 9% GST. You pay at the outlet."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:90
+msgid "Print JSON-LD"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:95
+msgid "Promo ID"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:78
+msgid "Promo modal"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:92
+msgid "Questions and answers"
+msgstr ""
+
+#: src/Frontend/Shortcodes.php:73
+msgid "Questions, answered"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:126
+msgid "Received"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:119 src/PostType/EnquiryPostType.php:234
+msgid "Reference"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:38 src/Admin/SettingsPage.php:39 src/Admin/SettingsPage.php:179
+msgid "Salon enquiries"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:39
+msgid "Salon enquiry form"
+msgstr ""
+
+#: src/Data/Catalogue.php:158
+msgid "Scalp check (20 min)"
+msgstr ""
+
+#: src/Data/Catalogue.php:160
+msgid "Scalp detox"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:72
+msgid "Search enquiries"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:46
+msgid "Send an enquiry"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:48
+msgid "Send enquiry"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:295
+msgid "Send me occasional offers (optional)."
+msgstr ""
+
+#: src/Frontend/Assets.php:95
+msgid "Sending…"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:219
+msgid "Sent as form_id with the enquiry_submit event."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:120 src/PostType/EnquiryPostType.php:123 src/PostType/EnquiryPostType.php:239
+msgid "Service"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:145 assets/js/block-editor.js:83
+msgid "Services"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:55
+msgid "Settings"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:105
+msgid "Settings are always removed. Tick to also delete every stored enquiry."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:102
+msgid "Show again after (days)"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:94
+msgid "Show promo modal"
+msgstr ""
+
+#: src/Data/Catalogue.php:157
+msgid "Skin analysis"
+msgstr ""
+
+#: src/Data/Catalogue.php:125
+msgid "Skin, studied."
+msgstr ""
+
+#. translators: %s: time, e.g. 2:30 pm.
+#: src/Enquiry/EnquiryService.php:138
+#, php-format
+msgid "Sorry, %s was just booked. Here are the nearest times:"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:244
+msgid "Source"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:79
+msgid "Spam protection and data"
+msgstr ""
+
+#. translators: 1: current step number, 2: total steps.
+#: src/Frontend/Assets.php:83
+#, php-format
+msgid "Step %1$d of %2$d"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:114 assets/js/block-editor.js:64
+msgid "Studio"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:76
+msgid "Studio and structured data"
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:188 assets/js/block-editor.js:110
+msgid "Submit button label"
+msgstr ""
+
+#: src/Settings.php:65
+msgid "Tell us it is your first visit when you enquire. Demo offer, not a real promotion."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:47
+msgid "Tell us what you're after and we'll WhatsApp you within 1 working hour."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:97
+msgid "Text"
+msgstr ""
+
+#. translators: 1: first name, 2: mobile number.
+#: src/Enquiry/EnquiryService.php:103
+#, php-format
+msgid "Thanks, %1$s. We'll WhatsApp you at %2$s within 1 working hour."
+msgstr ""
+
+#: src/Enquiry/EnquiryService.php:47
+msgid "Thanks. We will be in touch soon."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:150
+msgid "Thanks. Your enquiry is in."
+msgstr ""
+
+#: src/Elementor/EnquiryFormWidget.php:239
+msgid "The form uses the design tokens and Elementor global colours. Override only for special campaigns."
+msgstr ""
+
+#: src/Rest/EnquiryController.php:93 src/Frontend/FallbackHandler.php:56
+msgid "This form has expired. Please refresh the page and try again."
+msgstr ""
+
+#: src/Enquiry/Validator.php:81 src/Frontend/Assets.php:104
+msgid "This looks like a landline. We'll need a mobile number to send your confirmation."
+msgstr ""
+
+#: src/Data/Catalogue.php:159 src/Data/Catalogue.php:160
+msgid "Treatments"
+msgstr ""
+
+#: src/Frontend/Assets.php:99
+msgid "Use this"
+msgstr ""
+
+#: src/Enquiry/EnquiryService.php:88 src/Frontend/Assets.php:94
+msgid "We couldn't send that. Check your connection and try again, or WhatsApp us and we'll book it for you."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:251
+msgid "We'll WhatsApp or SMS you."
+msgstr ""
+
+#. translators: %s: enquiry reference, e.g. ORN-7K3Q.
+#: src/Frontend/FallbackHandler.php:82
+#, php-format
+msgid "We'll WhatsApp you within 1 working hour. Your reference is %s."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:196
+msgid "What would you like?"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:151
+msgid "WhatsApp"
+msgstr ""
+
+#: src/Frontend/Assets.php:96
+msgid "WhatsApp us"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:314
+msgid "WhatsApp us (opens WhatsApp)"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:178
+msgid "Which outlet suits you?"
+msgstr ""
+
+#: src/PostType/EnquiryPostType.php:170 src/PostType/EnquiryPostType.php:250
+msgid "Yes"
+msgstr ""
+
+#: src/Enquiry/EnquiryService.php:57
+msgid "You've sent a few enquiries already. Please wait a few minutes, or WhatsApp us and we'll help straight away."
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:125 src/Frontend/FormRenderer.php:241
+msgid "Your details"
+msgstr ""
+
+#. translators: %d: price in Singapore dollars.
+#: src/Frontend/FormRenderer.php:391
+#, php-format
+msgid "from S$%d"
+msgstr ""
+
+#: src/Frontend/FormRenderer.php:283
+msgid "privacy policy"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:91
+msgid "schema.org LocalBusiness subtype."
+msgstr ""
+
+#: blocks/enquiry-form/block.json
+msgctxt "block description"
+msgid "Multi-step salon enquiry form with live availability. Same markup as the Elementor widget and the [salon_enquiry] shortcode."
+msgstr ""
+
+#: blocks/enquiry-form/block.json
+msgctxt "block keyword"
+msgid "appointment"
+msgstr ""
+
+#: blocks/enquiry-form/block.json
+msgctxt "block keyword"
+msgid "booking"
+msgstr ""
+
+#: blocks/enquiry-form/block.json
+msgctxt "block keyword"
+msgid "enquiry"
+msgstr ""
+
+#: blocks/enquiry-form/block.json
+msgctxt "block keyword"
+msgid "salon"
+msgstr ""
+
+#: blocks/enquiry-form/block.json
+msgctxt "block title"
+msgid "Salon enquiry form"
+msgstr ""
+

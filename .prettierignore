@@ -7,3 +7,4 @@ next-env.d.ts
 .lighthouseci/
 playwright-report/
 test-results/
+wordpress/composer.lock
