@@ -14,6 +14,8 @@
     "lhci": "lhci autorun --config=lighthouserc.cjs"
   },
   "dependencies": {
+    "@keystatic/core": "0.6.10",
+    "@keystatic/next": "5.0.5",
     "@next/third-parties": "16.4.6",
     "@salon-demos/tokens": "workspace:*",
     "@salon-demos/ui": "workspace:*",

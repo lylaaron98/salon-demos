@@ -54,7 +54,7 @@ function sable_contact(): array {
 		'whatsapp'      => (string) get_theme_mod( 'sable_whatsapp', '6580000000' ),
 		'book_url'      => (string) get_theme_mod( 'sable_book_url', home_url( '/book/' ) ),
 		'book_label'    => (string) get_theme_mod( 'sable_book_label', __( 'Book a stylist', 'sable-hello-child' ) ),
-		'showcase_url'  => (string) get_theme_mod( 'sable_showcase_url', 'https://salon-demos.vercel.app' ),
+		'showcase_url'  => (string) get_theme_mod( 'sable_showcase_url', 'https://orrin-collective.vercel.app' ),
 	);
 }
 
