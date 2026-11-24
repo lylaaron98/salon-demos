@@ -95,6 +95,51 @@ JSON-LD (`apps/web/lib/seo/jsonld.ts`, typed with `schema-dts`, one `@graph` per
 No ratings, reviews or `sameAs` links are marked up: the brands are fictional. Unit tests in
 `apps/web/test/seo.test.ts` check the shape of every brand's graph.
 
+### Analytics and consent
+
+Google Tag Manager loads only when `NEXT_PUBLIC_GTM_ID` is set to a container id (`GTM-XXXXXXX`);
+without it nothing is requested from Google. GA4 is configured inside the container.
+
+**Consent Mode v2.** An inline script in `<head>` runs before GTM and sets every signal
+(`ad_storage`, `ad_user_data`, `ad_personalization`, `analytics_storage`) to `denied`, then
+re-applies a remembered choice. The cookie banner offers Accept all, Reject all and Customise
+(analytics, marketing) with equal weight, remembers the choice for a year in `localStorage`, sends
+`gtag('consent', 'update', …)` plus a `consent_update` event, and can be reopened from any "Cookie
+settings" link. It is shown by CSS from the first paint and is `position: fixed`, so it causes no
+layout shift; it comes first in the tab order and moves focus into the panel and back again.
+
+**Events.** Everything goes through `track()` in `apps/web/lib/analytics.ts`, with the names from
+the design brief (§6.7) so the WordPress builds report into the same GA4 funnel. Every event carries
+`brand` (`sable`, `dewlab`, `rootwell` or `orrin`), `site_platform: "nextjs"`, `page_type`
+(`group_home`, `brand_home`, `booking`, `booking_confirmation`, `utility`), `outlet_id`,
+`service_id`, `campaign_id` and `flow` (`booking` on booking pages, otherwise `null`). No names,
+phone numbers or emails are ever pushed.
+
+| Event               | Fires when                                               | Extra parameters                                                           |
+| ------------------- | -------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `contact_click`     | Any `tel:` or WhatsApp link is clicked, anywhere         | `method` (`call`, `whatsapp`), `location` (see below)                      |
+| `booking_start`     | First booking step rendered (once per session and brand) | `entry_step`, `entry_source`                                               |
+| `booking_step_view` | Each booking step is shown                               | `step_number`, `step_name`                                                 |
+| `select_outlet`     | Step 1 completed                                         | `outlet_id`, `selection_method`                                            |
+| `select_service`    | Step 2 completed                                         | `service_id`, `service_category`, `price`, `stylist_level`, `addons_count` |
+| `select_slot`       | Step 3 completed                                         | `days_ahead`, `daypart`, `staff_pref`                                      |
+| `no_slots_shown`    | A day with no free slots is shown                        | `date`                                                                     |
+| `details_submit`    | Step 4 is valid                                          | `marketing_opt_in`, `returning`                                            |
+| `form_error`        | A validation error is shown                              | `field`, `error_type`                                                      |
+| `booking_confirm`   | Confirm pressed                                          | `value`, `currency`                                                        |
+| `booking_complete`  | Success page rendered (deduplicated per booking)         | `booking_ref` (SHA-256, 16 hex), `value`, `currency`, `is_trial`           |
+| `booking_abandon`   | Page hidden before the confirm step                      | `last_step`                                                                |
+| `consent_update`    | A cookie choice is saved (no common parameters)          | the four Consent Mode signals                                              |
+
+`contact_click.location` is `header`, `footer`, `sticky`, `outlet_card`, `cta_band` or `page` on
+the marketing pages (one delegated listener, `ContactTracker`, reads the nearest
+`data-contact-location` and `data-outlet-id`), and `booking_header`, `booking_empty`,
+`booking_error` or `success` in the booking flow, whose links track themselves with the booking
+context (`data-analytics="manual"`).
+
+GA4 funnel: `booking_start → select_outlet → select_service → select_slot → details_submit →
+booking_complete`. Mark `booking_complete` as the key event.
+
 ## Commands
 
 All commands run from the repo root and fan out through Turborepo.

@@ -184,7 +184,11 @@ export default async function BrandHomePage({ params }: Props) {
         <Section id="outlets" title="Outlets" intro="Fictional addresses for this demo.">
           <ul className={styles.threeGrid}>
             {brand.outlets.map((outlet) => (
-              <li key={outlet.slug}>
+              <li
+                key={outlet.slug}
+                data-contact-location="outlet_card"
+                data-outlet-id={outlet.slug}
+              >
                 <OutletCard
                   variant="compact"
                   name={`${brand.shortName} · ${outlet.area}`}
@@ -207,7 +211,7 @@ export default async function BrandHomePage({ params }: Props) {
         </Section>
 
         <section className={styles.ctaBand} aria-labelledby="closing-title">
-          <div className={styles.container}>
+          <div className={styles.container} data-contact-location="cta_band">
             <h2 id="closing-title" className={styles.ctaTitle}>
               {brand.closing.title}
             </h2>
@@ -231,13 +235,16 @@ export default async function BrandHomePage({ params }: Props) {
         </section>
       </main>
 
-      <StickyBookBar
-        bookHref={book}
-        phone={brand.contact.phone}
-        whatsapp={brand.contact.whatsapp}
-        whatsappText={whatsappText(brand)}
-        spacer={false}
-      />
+      {/* display: contents, so the bar stays fixed to the viewport. */}
+      <div data-contact-location="sticky" style={{ display: "contents" }}>
+        <StickyBookBar
+          bookHref={book}
+          phone={brand.contact.phone}
+          whatsapp={brand.contact.whatsapp}
+          whatsappText={whatsappText(brand)}
+          spacer={false}
+        />
+      </div>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { expect, test, type Browser } from "@playwright/test";
-import { continueTo } from "./helpers";
+import { continueTo, savedConsent } from "./helpers";
 
 /**
  * Portfolio screenshots of the Dewlab booking flow: step 3 (date and time) and
@@ -22,7 +22,11 @@ const viewports = {
 } as const;
 
 async function capture(browser: Browser, baseURL: string, name: keyof typeof viewports) {
-  const context = await browser.newContext({ ...viewports[name], baseURL });
+  const context = await browser.newContext({
+    ...viewports[name],
+    baseURL,
+    storageState: savedConsent(new URL(baseURL).origin),
+  });
   const page = await context.newPage();
   await page.goto("/dewlab/book?outlet=novena&offer=first-visit");
   await page.getByRole("radio", { name: /Hydra-Glow signature facial/ }).check();

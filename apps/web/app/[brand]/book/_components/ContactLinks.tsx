@@ -2,7 +2,7 @@
 
 import { ButtonLink } from "@salon-demos/ui";
 import { telHref, whatsappHref } from "@salon-demos/ui/lib";
-import { track, type AnalyticsContext } from "@/lib/analytics";
+import { track, type AnalyticsContext, type ContactLocation } from "@/lib/analytics";
 import styles from "../booking.module.css";
 
 type Props = {
@@ -10,7 +10,10 @@ type Props = {
   whatsapp: string;
   whatsappText: string;
   /** `contact_click.location` (brief §6.7). */
-  location: "booking_header" | "booking_empty" | "booking_error" | "success";
+  location: Extract<
+    ContactLocation,
+    "booking_header" | "booking_empty" | "booking_error" | "success"
+  >;
   context: AnalyticsContext;
   variant?: "buttons" | "inline";
   whatsappLabel?: string;
@@ -41,12 +44,18 @@ export function ContactLinks({
           href={wa}
           target="_blank"
           rel="noopener noreferrer"
+          data-analytics="manual"
           onClick={onClick("whatsapp")}
         >
           {whatsappLabel}
           <span className={styles.vh}> (opens WhatsApp)</span>
         </a>
-        <a className={styles.inlineLink} href={telHref(phone)} onClick={onClick("call")}>
+        <a
+          className={styles.inlineLink}
+          href={telHref(phone)}
+          data-analytics="manual"
+          onClick={onClick("call")}
+        >
           Call {phone}
         </a>
       </>
@@ -61,12 +70,19 @@ export function ContactLinks({
         icon="chat"
         target="_blank"
         rel="noopener noreferrer"
+        data-analytics="manual"
         onClick={onClick("whatsapp")}
       >
         {whatsappLabel}
         <span className={styles.vh}> (opens WhatsApp)</span>
       </ButtonLink>
-      <ButtonLink href={telHref(phone)} variant="secondary" icon="phone" onClick={onClick("call")}>
+      <ButtonLink
+        href={telHref(phone)}
+        variant="secondary"
+        icon="phone"
+        data-analytics="manual"
+        onClick={onClick("call")}
+      >
         Call {phone}
       </ButtonLink>
     </div>

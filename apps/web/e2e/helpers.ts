@@ -2,8 +2,46 @@ import { expect, type Page } from "@playwright/test";
 
 export type DataLayerEvent = Record<string, unknown> & { event: string };
 
+/** App events from track() (gtag consent commands and GTM internals left out). */
 export async function dataLayer(page: Page): Promise<DataLayerEvent[]> {
-  return page.evaluate(() => (window.dataLayer ?? []) as DataLayerEvent[]);
+  return page.evaluate(
+    () =>
+      (window.dataLayer ?? []).filter(
+        (e) => !!e && typeof e === "object" && "site_platform" in e,
+      ) as unknown as DataLayerEvent[],
+  );
+}
+
+/** Raw dataLayer, with gtag `arguments` entries turned into arrays. */
+export async function rawDataLayer(page: Page): Promise<unknown[]> {
+  return page.evaluate(() =>
+    (window.dataLayer ?? []).map((e) =>
+      Object.prototype.toString.call(e) === "[object Arguments]"
+        ? Array.from(e as ArrayLike<unknown>)
+        : e,
+    ),
+  );
+}
+
+/**
+ * Storage state with a saved "reject all" cookie choice, so the consent banner
+ * stays out of the way in tests that are not about it.
+ */
+export function savedConsent(origin: string) {
+  return {
+    cookies: [],
+    origins: [
+      {
+        origin,
+        localStorage: [
+          {
+            name: "orn_consent",
+            value: JSON.stringify({ v: 1, ts: Date.now(), analytics: false, marketing: false }),
+          },
+        ],
+      },
+    ],
+  };
 }
 
 export async function eventNames(page: Page): Promise<string[]> {
