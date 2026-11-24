@@ -32,7 +32,7 @@ export const photos: Record<BrandId, BrandPhotos> = {
   sable: {
     hero: {
       id: "photo-1634449571010-02389ed0f9b0",
-      alt: "A stylist cutting a client's hair in a bright salon",
+      alt: "A stylist rinsing a client's hair at a salon wash basin",
       credit: "Lindsay Cash",
       href: "https://unsplash.com/photos/a-woman-getting-her-hair-cut-by-a-hair-stylist-Md_DhaFsnCQ",
     },
@@ -150,10 +150,10 @@ export const photos: Record<BrandId, BrandPhotos> = {
         href: "https://unsplash.com/photos/modern-white-reception-area-with-curved-lines-and-glass-partitions-ECBg5FQkBXI",
       },
       katong: {
-        id: "photo-1787496994323-59ac5cff09f9",
-        alt: "Cream armchairs beside a plant in a calm waiting room",
-        credit: "Enio Pereira da Silva",
-        href: "https://unsplash.com/photos/armchairs-and-plant-in-waiting-room-81GtA2ztXZI",
+        id: "photo-1741316039916-b09da8daa02c",
+        alt: "A welcoming reception desk in a modern spa",
+        credit: "Meg von Haartman",
+        href: "https://unsplash.com/photos/the-modern-spas-reception-desk-is-welcoming-DbOMZfXT6kw",
       },
       bugis: {
         id: "photo-1693578538512-fc66f318c833",
@@ -230,10 +230,10 @@ export const photos: Record<BrandId, BrandPhotos> = {
         href: "https://unsplash.com/photos/relaxing-lounge-chairs-in-a-sunlit-spa-room-FkB2CUuqU_c",
       },
       tampines: {
-        id: "photo-1787496994928-b5b554eb0cd8",
-        alt: "Cream armchairs and a plant against a wooden wall",
-        credit: "Enio Pereira da Silva",
-        href: "https://unsplash.com/photos/armchairs-with-plant-in-waiting-room-x4kpYNb_PVo",
+        id: "photo-1761470575018-135c213340eb",
+        alt: "A calm steam room lit by a candle and soft ambient light",
+        credit: "Dominik Neuner",
+        href: "https://unsplash.com/photos/a-modern-steam-room-with-a-candle-and-ambient-lighting-9qYFu1NzpS8",
       },
     },
     team: {
