@@ -8,16 +8,20 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "next typegen && tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "test:e2e": "playwright test --trace off"
   },
   "dependencies": {
     "@salon-demos/tokens": "workspace:*",
     "@salon-demos/ui": "workspace:*",
     "next": "16.4.6",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
   },
   "devDependencies": {
+    "@playwright/test": "1.65.1",
     "@salon-demos/config": "workspace:*",
     "@types/node": "22.20.5",
     "@types/react": "19.3.0",

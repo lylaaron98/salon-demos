@@ -226,4 +226,10 @@ export const rootwell = {
     blurb: "Scalp care and head spa, coached calmly. A fictional demo brand.",
     hours: ["Mon–Fri 10 am–9 pm", "Sat–Sun 9 am–7 pm", "Tampines open daily to 10 pm"],
   },
+  offer: {
+    id: "first-visit",
+    label: "Scalp reset trial",
+    services: ["head-spa"],
+    price: 38,
+  },
 } satisfies Brand;

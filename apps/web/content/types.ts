@@ -51,6 +51,19 @@ export type Testimonial = {
   rating: number;
 };
 
+/** First-visit offer applied in the booking flow when the URL carries `offer=<id>`. */
+export type BookingOffer = {
+  id: string;
+  /** Short label for the summary, e.g. "First-visit trial". */
+  label: string;
+  /** Service slugs the offer applies to. */
+  services: string[];
+  /** Fixed offer price in S$ (GST inclusive). */
+  price?: number;
+  /** Or a percentage off the listed price. */
+  percentOff?: number;
+};
+
 export type Brand = {
   id: BrandId;
   name: string;
@@ -82,4 +95,6 @@ export type Brand = {
   faqs: FAQItem[];
   closing: { title: string; body: string };
   footer: { blurb: string; hours: string[] };
+  /** Optional first-visit offer the promo banner links into the booking flow. */
+  offer?: BookingOffer;
 };
