@@ -45,12 +45,12 @@ route returns 404.
 2. Follow Keystatic's prompt to create a GitHub App, and install it on `lylaaron98/salon-demos`.
    Keystatic writes four variables to `apps/web/.env`.
 3. In the GitHub App's settings, add the callback URL
-   `https://salon-demos.vercel.app/api/keystatic/github/oauth/callback`.
+   `https://orrin-collective.vercel.app/api/keystatic/github/oauth/callback`.
 4. In Vercel → Project → Settings → Environment Variables, add the four variables
    (`KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET`,
    `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`) and redeploy.
 
-Editors then sign in at `https://salon-demos.vercel.app/keystatic` with GitHub (they need write
+Editors then sign in at `https://orrin-collective.vercel.app/keystatic` with GitHub (they need write
 access to the repo). Each save is a commit; Vercel rebuilds and the change is live in about a minute.
 To review edits before they go live, create a branch in the Keystatic header, save there, and open
 a pull request from it: CI and the Vercel preview run as for any code change.

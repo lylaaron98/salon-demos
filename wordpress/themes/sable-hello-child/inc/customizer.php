@@ -40,7 +40,7 @@ function sable_customize_register( WP_Customize_Manager $wp_customize ): void {
 		'sable_whatsapp'      => array( __( 'WhatsApp number (digits, with country code)', 'sable-hello-child' ), '6580000000', 'sable_sanitize_phone', 'text' ),
 		'sable_book_url'      => array( __( 'Booking page URL', 'sable-hello-child' ), home_url( '/book/' ), 'esc_url_raw', 'url' ),
 		'sable_book_label'    => array( __( 'Primary button label', 'sable-hello-child' ), __( 'Book a stylist', 'sable-hello-child' ), 'sanitize_text_field', 'text' ),
-		'sable_showcase_url'  => array( __( 'Next.js showcase URL (sister brands)', 'sable-hello-child' ), 'https://salon-demos.vercel.app', 'esc_url_raw', 'url' ),
+		'sable_showcase_url'  => array( __( 'Next.js showcase URL (sister brands)', 'sable-hello-child' ), 'https://orrin-collective.vercel.app', 'esc_url_raw', 'url' ),
 	);
 
 	foreach ( $fields as $id => [ $label, $default, $sanitize, $type ] ) {
