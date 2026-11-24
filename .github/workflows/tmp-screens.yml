@@ -19,10 +19,16 @@ jobs:
           SCREENSHOT_DIR: ${{ github.workspace }}/screenshots
       - name: Dump downscaled screenshots
         run: |
-          cd screenshots
-          for f in home-*.png; do
-            convert "$f" -resize 50% -quality 72 "${f%.png}.jpg"
-            echo "=====BEGIN ${f%.png}.jpg"
-            base64 -w0 "${f%.png}.jpg"; echo
-            echo "=====END"
-          done
+          pip install --quiet pillow
+          python3 - <<'PY'
+          import base64, glob, io, os
+          from PIL import Image
+          for f in sorted(glob.glob("screenshots/home-*.png")):
+              im = Image.open(f).convert("RGB")
+              im = im.resize((im.width // 2, im.height // 2))
+              buf = io.BytesIO(); im.save(buf, "JPEG", quality=72)
+              name = os.path.basename(f)[:-4] + ".jpg"
+              print("=====BEGIN " + name)
+              print(base64.b64encode(buf.getvalue()).decode())
+              print("=====END", flush=True)
+          PY
