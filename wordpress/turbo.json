@@ -3,7 +3,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "outputs": ["themes/*/assets/build/**"]
+      "outputs": ["themes/*/assets/build/**", "themes/dewlab-block/theme.json"]
     }
   }
 }

@@ -1,6 +1,6 @@
 # WordPress
 
-This folder holds the WordPress code for the two builder-based brand sites,
+This folder holds the WordPress code for the two WordPress brand sites,
 following the zero-cost route (no paid licences, no paid hosting):
 
 | Path                             | What                                                         |
@@ -24,9 +24,16 @@ pnpm --filter @salon-demos/wordpress build   # tokens + fonts + Elementor kit ->
 pnpm --filter @salon-demos/wordpress lint    # ESLint for the vanilla JS shipped to browsers
 ```
 
-The build copies `packages/tokens/dist/tokens.css` and `elementor-kit.json` into
-`themes/sable-hello-child/assets/build/` (git-ignored), adds self-hosted WOFF2 fonts and writes an
-Elementor kit zip. See [`themes/sable-hello-child/README.md`](themes/sable-hello-child/README.md).
+`scripts/build-theme-assets.mjs` runs one module per theme (`scripts/themes/*.mjs`, shared helpers
+in `scripts/lib/`). All output is git-ignored:
+
+- **Sable & Shear** (`themes/sable-hello-child/assets/build/`): `tokens.css`, self-hosted WOFF2
+  fonts and the Elementor kit (JSON + zip). See
+  [`themes/sable-hello-child/README.md`](themes/sable-hello-child/README.md).
+- **Dewlab** (`themes/dewlab-block/theme.json` and `assets/build/`): theme.json v3 merged from
+  `packages/tokens/dist/theme.json` and the hand-written `theme.base.json`, with `fontFace` for the
+  self-hosted fonts, plus resolved token variables. See
+  [`themes/dewlab-block/README.md`](themes/dewlab-block/README.md).
 
 ## PHP quality tools
 

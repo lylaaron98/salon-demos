@@ -1,0 +1,276 @@
+/**
+ * Dewlab block theme: the few rules theme.json cannot express. Every value is a token variable
+ * (assets/build/tokens.css) or a theme.json preset; no hex values. Inlined by WordPress.
+ */
+
+/* Focus: 2px ring in the action colour on every interactive element (design brief 0.3). */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.has-bg-inverse-background-color :where(a, button):focus-visible {
+  outline-color: var(--color-focus-ring-inverse);
+}
+
+/* Buttons: 48px high, touch target at least 44px (design brief 4.14). */
+.wp-element-button,
+.wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+/* Header: sticky, reserves its height (no CLS). CTA moves to the bottom bar below 600px, where
+   core Navigation switches to its overlay menu. */
+.dewlab-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-bar .dewlab-header {
+  top: var(--wp-admin--admin-bar--height, 0);
+}
+
+.dewlab-header__bar {
+  min-height: 48px;
+}
+
+.dewlab-header .wp-block-navigation__responsive-container-open,
+.dewlab-header .wp-block-navigation__responsive-container-close {
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+}
+
+.dewlab-header .wp-block-navigation .current-menu-item > a,
+.dewlab-header .wp-block-navigation a[aria-current="page"] {
+  text-decoration: underline 2px var(--color-action-bg);
+  text-underline-offset: 6px;
+}
+
+/* Landing template: full-width sections sit flush, no block gap between them. */
+.dewlab-landing > .alignfull {
+  margin-block: 0;
+}
+
+/* Text atoms. */
+.dewlab-eyebrow {
+  margin: 0;
+  color: var(--color-action-secondary-text);
+  font-size: var(--wp--preset--font-size--xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.dewlab-eyebrow--ink {
+  color: var(--color-text-on-accent);
+}
+
+.dewlab-lead {
+  max-width: 34em;
+}
+
+.dewlab-chip {
+  display: inline-block;
+  margin: 0;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-chip);
+  background: var(--color-bg-subtle);
+  color: var(--color-text-primary);
+  font-size: var(--wp--preset--font-size--xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.dewlab-chip--inverse {
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}
+
+.dewlab-price {
+  font-weight: var(--font-weight-bold);
+}
+
+.dewlab-price--large {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: var(--wp--preset--font-size--3-xl);
+  font-weight: var(--display-weight);
+  line-height: var(--line-height-3xl);
+}
+
+.dewlab-price__unit {
+  font-family: var(--wp--preset--font-family--body);
+  font-size: var(--wp--preset--font-size--sm);
+}
+
+/* Lists: trust row, tick list, plain footer links. */
+.dewlab-trust,
+.dewlab-ticks,
+.dewlab-plain-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.dewlab-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  color: var(--color-text-muted);
+}
+
+.dewlab-ticks li {
+  position: relative;
+  padding-left: 1.6em;
+}
+
+.dewlab-ticks li + li,
+.dewlab-plain-list li + li {
+  margin-top: var(--space-2);
+}
+
+.dewlab-ticks li::before {
+  position: absolute;
+  left: 0;
+  color: var(--color-action-secondary-text);
+  content: "✓";
+  font-weight: var(--font-weight-bold);
+}
+
+/* Cards (service, pricing tier, outlet, testimonial). */
+.dewlab-card {
+  margin: 0;
+  padding: var(--space-6);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.dewlab-card > :first-child {
+  margin-top: 0;
+}
+
+.dewlab-card--featured {
+  border-color: var(--color-border-input);
+  color: var(--color-text-on-accent);
+}
+
+.dewlab-card .wp-block-heading {
+  margin-block: var(--space-2) 0;
+}
+
+.dewlab-card__link {
+  margin-top: auto;
+}
+
+/* Hero: 4:5 image on desktop, 4:3 below the column breakpoint (design brief 7.3). */
+.dewlab-hero__image img {
+  width: 100%;
+  height: auto;
+  background: var(--color-bg-subtle);
+}
+
+@media (max-width: 781px) {
+  .dewlab-hero__image img {
+    aspect-ratio: 4 / 3 !important;
+  }
+}
+
+/* Booking: the form sits on a surface card so muted text keeps 4.5:1 contrast. */
+.dewlab-book__form {
+  padding: var(--space-6);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.dewlab-book .sbe-form {
+  max-width: none;
+}
+
+/* Footer. */
+.dewlab-footer__heading {
+  font-family: var(--wp--preset--font-family--body);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.dewlab-footer .wp-block-separator {
+  border-color: currentcolor;
+  opacity: 0.3;
+}
+
+.dewlab-footer__legal p {
+  margin: 0;
+}
+
+/* Mobile booking bar (design brief 4.10): CSS only, below the Navigation overlay breakpoint. */
+nav.dewlab-bookbar {
+  display: none;
+}
+
+@media (max-width: 599px) {
+  .dewlab-header__cta {
+    display: none !important;
+  }
+
+  nav.dewlab-bookbar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 30;
+    display: block;
+    box-sizing: border-box;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    overflow: hidden;
+    padding: var(--space-2) var(--space-4) calc(var(--space-2) + env(safe-area-inset-bottom));
+    background: var(--color-bg-surface);
+    box-shadow: var(--shadow-sticky);
+  }
+
+  .dewlab-bookbar .wp-block-buttons {
+    flex-wrap: nowrap;
+  }
+
+  .dewlab-bookbar__primary {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .dewlab-bookbar__primary .wp-block-button__link {
+    width: 100%;
+  }
+
+  .dewlab-bookbar__secondary .wp-block-button__link,
+  .dewlab-bookbar__primary .wp-block-button__link {
+    padding-inline: var(--space-3);
+    white-space: nowrap;
+  }
+
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}

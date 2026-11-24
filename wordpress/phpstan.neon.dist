@@ -6,6 +6,7 @@ parameters:
 	phpVersion: 80100
 	paths:
 		- themes/sable-hello-child
+		- themes/dewlab-block
 		- plugins/salon-booking-enquiry
 	excludePaths:
 		analyse:

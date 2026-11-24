@@ -9,5 +9,9 @@ playwright-report/
 test-results/
 wordpress/composer.lock
 
+# WordPress block markup: the editor validates exact HTML, so Prettier must not reflow it.
+wordpress/themes/*/templates/
+wordpress/themes/*/parts/
+
 # Written by the Keystatic CMS; the build validates it with content/schema.ts.
 apps/web/content/brands/*.json

@@ -1,0 +1,20 @@
+/*
+Theme Name:        Dewlab Skin Studio
+Theme URI:         https://github.com/lylaaron98/salon-demos
+Description:       Block theme (Full Site Editing) for Dewlab Skin Studio, a fictional skin studio in the Orrin Collective demo. theme.json is generated from the shared design tokens, fonts are self-hosted, and the booking form and FAQ come from the salon-booking-enquiry plugin. No jQuery.
+Author:            Aaron Lee
+Author URI:        https://github.com/lylaaron98
+Version:           1.0.0
+Requires at least: 6.5
+Tested up to:      6.8
+Requires PHP:      8.1
+License:           GPL-2.0-or-later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       dewlab-block
+Tags:              full-site-editing, block-patterns, block-styles, accessibility-ready, translation-ready
+*/
+
+/*
+ * Styles live in theme.json (generated) and assets/css/theme.css; design tokens in
+ * assets/build/tokens.css (generated). This file only carries the theme header WordPress reads.
+ */

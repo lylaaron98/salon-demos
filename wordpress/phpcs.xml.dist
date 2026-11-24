@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <ruleset name="salon-demos WordPress">
-	<description>WordPress Coding Standards for the Sable &amp; Shear child theme and the salon-booking-enquiry plugin.</description>
+	<description>WordPress Coding Standards for the salon-demos themes and the salon-booking-enquiry plugin.</description>
 
 	<file>themes/sable-hello-child</file>
+	<file>themes/dewlab-block</file>
 	<file>plugins/salon-booking-enquiry</file>
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>
@@ -34,6 +35,7 @@
 		<properties>
 			<property name="prefixes" type="array">
 				<element value="sable"/>
+				<element value="dewlab"/>
 				<element value="salon_booking_enquiry"/>
 				<element value="SalonBookingEnquiry"/>
 			</property>
@@ -44,6 +46,7 @@
 		<properties>
 			<property name="text_domain" type="array">
 				<element value="sable-hello-child"/>
+				<element value="dewlab-block"/>
 				<element value="salon-booking-enquiry"/>
 			</property>
 		</properties>
